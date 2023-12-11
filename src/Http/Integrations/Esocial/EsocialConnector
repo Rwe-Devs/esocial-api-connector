@@ -1,0 +1,11 @@
+<?php
+
+use Saloon\Http\Connector;
+
+class EsocialConnector extends Connector
+{
+    public function resolveBaseUrl(): string
+    {
+        return 'https://api.github.com/';
+    }
+}

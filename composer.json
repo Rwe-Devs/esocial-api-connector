@@ -1,0 +1,20 @@
+{
+    "name": "rwe-devs/esocial-api-connector",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RweDevs\\EsocialApiConnector\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Victor Dracxler",
+            "email": "victordracxler@poli.ufrj.br"
+        }
+    ],
+    "require": {
+        "saloonphp/saloon": "^3.0",
+        "saloonphp/laravel-plugin": "^3.0"
+    }
+}
