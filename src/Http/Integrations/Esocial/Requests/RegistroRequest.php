@@ -1,19 +1,25 @@
 <?php
 
+namespace RweDevs\EsocialApiConnector\Esocial\Requests;
+
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
+use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
+use Saloon\Traits\Body\HasJsonBody;
+
 
 /**
  * Requisição POST para registro de novo usuário.
  */
-class RegistroRequest extends Request
+class RegistroRequest extends Request implements HasBody
 {
+    use HasJsonBody;
     protected Method $method = Method::POST;
-    // protected Connector $connector = EsocialConnector::class;
+    protected ?string $connector = EsocialConnector::class;
 
-
-    private string $body;
+    private array $bodyArr;
 
     /**
      * Monta o 'body' da Request
@@ -32,14 +38,20 @@ class RegistroRequest extends Request
         int $tpInsc,
         int $nrInsc)
     {
-        $this->body = json_encode([
+        $this->bodyArr = [
             "name" => $name,
             "email" => $email,
             "password" => $password,
             "password_confirmation" => $password_confirmation,
             "tpInsc" => $tpInsc,
             "nrInsc" => $nrInsc
-        ]);
+        ];
+
+
+    }
+    protected function defaultBody(): array
+    {
+        return $this->bodyArr;
     }
 
     public function resolveEndpoint(): string
