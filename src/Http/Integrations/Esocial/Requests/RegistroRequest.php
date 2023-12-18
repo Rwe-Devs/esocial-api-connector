@@ -1,14 +1,17 @@
 <?php
 
 use Saloon\Enums\Method;
+use Saloon\Http\Connector;
 use Saloon\Http\Request;
 
 /**
  * Requisição POST para registro de novo usuário.
  */
-class RegisterRequest extends Request
+class RegistroRequest extends Request
 {
     protected Method $method = Method::POST;
+    // protected Connector $connector = EsocialConnector::class;
+
 
     private string $body;
 
