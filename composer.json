@@ -6,7 +6,8 @@
     "psr-4": {
       "RweDevs\\EsocialApiConnector\\": "src/",
       "RweDevs\\EsocialApiConnector\\Esocial\\": "src/Http/Integrations/Esocial",
-      "RweDevs\\EsocialApiConnector\\Esocial\\Requests\\": "src/Http/Integrations/Esocial/Requests"
+      "RweDevs\\EsocialApiConnector\\Esocial\\Requests\\": "src/Http/Integrations/Esocial/Requests",
+      "RweDevs\\EsocialApiConnector\\DTO\\": "src/DTO"
     }
   },
   "authors": [

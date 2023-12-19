@@ -2,6 +2,7 @@
 
 namespace RweDevs\EsocialApiConnector\Esocial\Requests;
 
+use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -17,39 +18,26 @@ class RegistroRequest extends Request implements HasBody
     protected Method $method = Method::POST;
     protected ?string $connector = EsocialConnector::class;
 
-    private array $bodyArr;
 
     /**
      * Monta o 'body' da Request
      * 
-     * @param string $name Nome do usuário.
-     * @param string $email Email do usuário.
-     * @param string $password Senha do usuário.
-     * @param string $password_confirmation Confirmação de senha do usuário.
-     * @param int $tpInsc Tipo de Inscrição. 0 ou 1.
-     * @param int $nrInsc Número de inscrição.
+     * @param RegistroDTO $registroDTO Recebe um objeto RegistroDTO que representa o body da requisição.
      */
-    public function __construct(string $name,
-        string $email,
-        string $password,
-        string $password_confirmation,
-        int $tpInsc,
-        int $nrInsc)
-    {
-        $this->bodyArr = [
-            "name" => $name,
-            "email" => $email,
-            "password" => $password,
-            "password_confirmation" => $password_confirmation,
-            "tpInsc" => $tpInsc,
-            "nrInsc" => $nrInsc
-        ];
-
-
+    public function __construct(
+        protected RegistroDTO $registroDTO
+    ) {
     }
     protected function defaultBody(): array
     {
-        return $this->bodyArr;
+        return [
+            'name' => $this->registroDTO->name,
+            'email' => $this->registroDTO->email,
+            'password' => $this->registroDTO->password,
+            'password_confirmation' => $this->registroDTO->password_confirmation,
+            'tpInsc' => $this->registroDTO->tpInsc,
+            'nrInsc' => $this->registroDTO->nrInsc,
+        ];
     }
 
     public function resolveEndpoint(): string
