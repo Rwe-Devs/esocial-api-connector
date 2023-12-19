@@ -28,7 +28,8 @@ $connector = new EsocialConnector($apiUrl);
 
 
 // REQUESTS DE AUTENTICAÇÃO
-$registroDTO = new RegistroDTO('teste de user', 'teste6@teste.com', '12345678', '12345678', 1, 15580779788);
+
+$registroDTO = new RegistroDTO('teste de user', 'teste7@teste.com', '12345678', '12345678', 1, 15580779788);
 // $registroDTOfromRequest = RegistroDTO::fromRequest($request);
 $registro = new RegistroRequest($registroDTO);
 $response = $connector->send($registro);
