@@ -20,7 +20,7 @@ class CriarEmpregadorRequest extends Request implements HasBody
 
 
     /**
-     * Monta o 'body' da Request
+     * Monta o 'body' da Request para criar Empregador
      * 
      * @param CriarEmpregadorDTO $criarEmpregadorDTO Recebe um objeto CriarEmpregadorDTO que representa o body da requisição.
      */
