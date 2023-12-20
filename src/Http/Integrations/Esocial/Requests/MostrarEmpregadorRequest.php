@@ -2,32 +2,32 @@
 
 namespace RweDevs\EsocialApiConnector\Esocial\Requests;
 
-use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
-use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Requisição POST para registro de novo usuário.
  */
-class EmpregadorListRequest extends Request
+class MostrarEmpregadorRequest extends Request
 {
     protected Method $method = Method::GET;
     protected ?string $connector = EsocialConnector::class;
 
 
     /**
-     * Lista todos os empregadores
+     * Mostra um empregador específico.
      * 
+     * @param string $id Id do Empregador a ser mostrado.
      */
-    public function __construct()
-    {
+    public function __construct(
+        public string $id
+    ) {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/empregadores';
+        return '/empregadores' . '/' . $this->id;
     }
 }

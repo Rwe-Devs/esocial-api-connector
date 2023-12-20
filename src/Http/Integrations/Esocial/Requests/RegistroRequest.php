@@ -20,7 +20,7 @@ class RegistroRequest extends Request implements HasBody
 
 
     /**
-     * Monta o 'body' da Request
+     * Monta o 'body' da Request de Registro
      * 
      * @param RegistroDTO $registroDTO Recebe um objeto RegistroDTO que representa o body da requisição.
      */

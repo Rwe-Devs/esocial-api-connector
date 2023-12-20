@@ -12,7 +12,6 @@ class CriarEmpregadorDTO
     /**
      * Monta o 'body' da Request de Criar Empregador.
      *
-     * @param int|null $userId Identificador único do usuário associado (nullable).
      * @param int $tpInsc Tipo de Inscrição. 0 ou 1.
      * @param int $nrInsc Número de Inscrição único.
      * @param string $nmRazao Nome ou Razão Social do empregador.
@@ -63,7 +62,6 @@ class CriarEmpregadorDTO
      * @param string|null $obsASO Informação do ASO (nullable).
      */
     public function __construct(
-        public readonly ?int $userId,
         public readonly int $tpInsc,
         public readonly int $nrInsc,
         public readonly string $nmRazao,
@@ -119,7 +117,6 @@ class CriarEmpregadorDTO
     public static function fromRequest(Request $request): self
     {
         return new self(
-            $request->input('user_id'),
             $request->input('tpInsc'),
             $request->input('nrInsc'),
             $request->input('nmRazao'),
