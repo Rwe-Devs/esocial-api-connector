@@ -10,7 +10,7 @@ use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
- * Requisição POST para registro de novo usuário.
+ * Requisição POST para criação de novo Empregador.
  */
 class CriarEmpregadorRequest extends Request implements HasBody
 {

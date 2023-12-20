@@ -7,7 +7,7 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição POST para registro de novo usuário.
+ * Requisição GET para mostrar um Empregador.
  */
 class MostrarEmpregadorRequest extends Request
 {

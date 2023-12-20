@@ -170,20 +170,6 @@ class CriarEmpregadorDTO
 
     public function validate()
     {
-        // $validator = Validator::make([
-        //     'user_id' => $this->userId,
-        //     'tpInsc' => $this->tpInsc,
-        //     'nrInsc' => $this->nrInsc,
-        //     // ... inclua todos os campos aqui para validação ...
-        // ], [
-        //     'user_id' => ['nullable', 'integer', 'exists:users,id'],
-        //     'tpInsc' => ['required', 'integer'],
-        //     'nrInsc' => ['required', 'integer', 'unique:empregadores'],
-        //     // ... inclua todas as regras de validação aqui ...
-        // ]);
 
-        // if ($validator->fails()) {
-        //     throw new ValidationException($validator);
-        // }
     }
 }

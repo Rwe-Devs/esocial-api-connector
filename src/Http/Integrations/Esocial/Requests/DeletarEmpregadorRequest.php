@@ -7,7 +7,7 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição POST para registro de novo usuário.
+ * Requisição DELETE para deletar Empregador.
  */
 class DeletarEmpregadorRequest extends Request
 {
