@@ -2,6 +2,8 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
+use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\EmpregadorListRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
@@ -29,14 +31,14 @@ $connector = new EsocialConnector($apiUrl);
 
 // REQUESTS DE AUTENTICAÇÃO
 
-$registroDTO = new RegistroDTO('teste de user', 'teste7@teste.com', '12345678', '12345678', 1, 15580779788);
+// $registroDTO = new RegistroDTO('teste de user', 'teste7@teste.com', '12345678', '12345678', 1, 15580779788);
 // $registroDTOfromRequest = RegistroDTO::fromRequest($request);
-$registro = new RegistroRequest($registroDTO);
-$response = $connector->send($registro);
+// $registro = new RegistroRequest($registroDTO);
+// $response = $connector->send($registro);
 
-
-// $login = new LoginRequest('teste3@teste.com', '12345678');
-// $response = $connector->send($login);
+$loginDTO = new LoginDTO('teste7@teste.com', '12345678');
+$login = new LoginRequest($loginDTO);
+$response = $connector->send($login);
 
 
 // $logout = new LogoutRequest('teste2@teste.com', '12345678');
@@ -47,5 +49,7 @@ $response = $connector->send($registro);
 
 // $empregadorList = new EmpregadorListRequest;
 // $response = $authConnector->send($empregadorList);
+
+// $criarEmpregadorDTO = new CriarEmpregadorDTO(1, );
 
 echo ($response);
