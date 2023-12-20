@@ -107,11 +107,63 @@ $authConnector = new EsocialConnector($apiUrl, $token);
 //     obsASO: null // ou informações do ASO, se aplicável
 // );
 
+$empregadorDataArray = [
+    'tpInsc' => 1,
+    'nrInsc' => 42534539,
+    'nmRazao' => 'Nome da Razão Social do Empregador',
+    'iniValid' => '2023-01',
+    'fimValid' => null,
+    'classTrib' => '99',
+    'indCoop' => '0',
+    'indConstr' => '0',
+    'indDesFolha' => '1',
+    'indopccp' => '2',
+    'indporte' => '3',
+    'indOptRegEletron' => true,
+    'cnpjEFR' => null,
+    'dttrans11096' => null,
+    'indtribfolhapiscofins' => null,
+    'natJurid' => null,
+    'multTabRubricas' => 'S',
+    'indEntEd' => null,
+    'indEtt' => 'N',
+    'nrRegEtt' => null,
+    'ideMinLei' => 'Nome do Ministério ou Lei',
+    'nrCertif' => 'Número do Certificado',
+    'dtEmisCertif' => '2023-01-01',
+    'dtVencCertif' => '2024-01-01',
+    'nrProtRenov' => null,
+    'dtProtRenov' => null,
+    'dtDou' => null,
+    'pagDou' => null,
+    'nmCtt' => 'Nome do Contato',
+    'cpfCtt' => '12345678901',
+    'foneFixo' => null,
+    'foneCel' => null,
+    'email' => 'email@dominio.com',
+    'nrSiafi' => '123456',
+    'ideEFR' => 'S',
+    'website' => null,
+    'logo' => null,
+    'nmEnte' => 'Nome do Ente Federativo',
+    'uf' => 'UF',
+    'codMunic' => null,
+    'indRPPS' => 'N',
+    'subteto' => 'L',
+    'vrSubteto' => 99999.99,
+    'indAcordoIsenMulta' => 'N',
+    'indSitPJ' => null,
+    'obs' => 'Observações sobre o empregador',
+    'obsPPP' => null,
+    'obsASO' => null
+];
+$criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
+
 // Criando a requisição com a DTO
-// $criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
+$criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
 
 // Enviando a requisição através do conector
-// $response = $authConnector->send($criarEmpregadorRequest);
+$response = $authConnector->send($criarEmpregadorRequest);
 
 // $response = $authConnector->send(new MostrarEmpregadorRequest(14));
 
@@ -175,7 +227,7 @@ $authConnector = new EsocialConnector($apiUrl, $token);
 // $response = $authConnector->send($atualizarEmpregadorRequest);
 
 // Deletar Empregador
-$response = $authConnector->send(new DeletarEmpregadorRequest(15));
+// $response = $authConnector->send(new DeletarEmpregadorRequest(15));
 
 
 echo ($response);
