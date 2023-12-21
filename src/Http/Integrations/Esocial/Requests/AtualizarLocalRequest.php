@@ -10,7 +10,7 @@ use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
- * Requisição POST para criação de novo Local.
+ * Requisição PUT para atualização de um Local de Trabalho.
  */
 class AtualizarLocalRequest extends Request implements HasBody
 {

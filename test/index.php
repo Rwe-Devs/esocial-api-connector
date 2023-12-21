@@ -18,6 +18,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
 use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
@@ -350,5 +351,9 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // Supondo que você tenha um Request para criar um Local
 // $atualizarLocalRequest = new AtualizarLocalRequest(14, 17, $atualizararLocalDTO);
 // $response = $authConnector->send($atualizarLocalRequest);
+
+$mostrarLocalRequest = new MostrarLocalRequest(14, 17);
+$response = $authConnector->send($mostrarLocalRequest);
+
 
 echo ($response);

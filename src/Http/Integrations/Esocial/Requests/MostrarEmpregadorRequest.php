@@ -27,6 +27,6 @@ class MostrarEmpregadorRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return '/empregadores' . '/' . $this->id;
+        return '/empregadores/' . $this->id;
     }
 }
