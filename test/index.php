@@ -10,6 +10,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
@@ -19,7 +20,7 @@ use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 
 
-$apiUrl = 'http://localhost:8000/api/';
+$apiUrl = 'http://localhost:8001/api/';
 $token = '10|70Uftj5agc85s285vcD2RPE7m6pJSk9UmF1vDPe3523ce7fd';
 
 $serviceProvider = EsocialApiConnectorServiceProvider::class;
@@ -109,7 +110,7 @@ $authConnector = new EsocialConnector($apiUrl, $token);
 
 $empregadorDataArray = [
     'tpInsc' => 1,
-    'nrInsc' => 42534539,
+    'nrInsc' => 5119634,
     'nmRazao' => 'Nome da Razão Social do Empregador',
     'iniValid' => '2023-01',
     'fimValid' => null,
@@ -229,5 +230,8 @@ $response = $authConnector->send($criarEmpregadorRequest);
 // Deletar Empregador
 // $response = $authConnector->send(new DeletarEmpregadorRequest(15));
 
+// VER LOCAIS
+
+$response = $authConnector->send(new ListarLocalRequest(13));
 
 echo ($response);
