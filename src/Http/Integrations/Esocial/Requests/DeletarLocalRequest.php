@@ -7,16 +7,16 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição GET para mostrar apenas um Local de Trabalho específico.
+ * Requisição DELETE para deletar Local de Trabalho.
  */
-class MostrarLocalRequest extends Request
+class DeletarLocalRequest extends Request
 {
-    protected Method $method = Method::GET;
+    protected Method $method = Method::DELETE;
     protected ?string $connector = EsocialConnector::class;
 
 
     /**
-     * Mostra um Local de Trabalho do Empregador
+     * Deleta um Local de Trabalho do Empregador
      * 
      * @param string $idEmpregador Id do Empregador.
      * @param string $idLocal Id do Local de Trabalho

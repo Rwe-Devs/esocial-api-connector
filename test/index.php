@@ -13,6 +13,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
@@ -352,8 +353,7 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // $atualizarLocalRequest = new AtualizarLocalRequest(14, 17, $atualizararLocalDTO);
 // $response = $authConnector->send($atualizarLocalRequest);
 
-$mostrarLocalRequest = new MostrarLocalRequest(14, 17);
-$response = $authConnector->send($mostrarLocalRequest);
-
+// $response = $authConnector->send(new MostrarLocalRequest(14, 17));
+$response = $authConnector->send(new DeletarLocalRequest(14, 17));
 
 echo ($response);
