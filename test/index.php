@@ -3,11 +3,13 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
@@ -289,7 +291,64 @@ $criarLocalDTO = new CriarLocalDTO(
 );
 
 // Supondo que você tenha um Request para criar um Local
-$criarLocalRequest = new CriarLocalRequest(14, $criarLocalDTO);
-$response = $authConnector->send($criarLocalRequest);
+// $criarLocalRequest = new CriarLocalRequest(14, $criarLocalDTO);
+// $response = $authConnector->send($criarLocalRequest);
+
+
+$atualizararLocalDTO = new AtualizarLocalDTO(
+    codigo: 27373,
+    iniValid: "2024-01",
+    fimValid: null, // ou a data de fim de validade, se aplicável
+    nmRazao: "Local atualizado",
+    tpInsc: 1,
+    nrInsc: 8523,
+    classTrib: "99",
+    indCoop: "0",
+    indConstr: "0",
+    indDesFolha: "1",
+    indopccp: "2",
+    indporte: "3",
+    indOptRegEletron: true,
+    cnpjEFR: null, // ou o CNPJ, se aplicável
+    dttrans11096: null, // ou a data, se aplicável
+    indtribfolhapiscofins: null, // ou o indicativo, se aplicável
+    natJurid: null, // ou o código da natureza jurídica, se aplicável
+    multTabRubricas: "S",
+    indEntEd: null, // ou o indicativo, se aplicável
+    indEtt: "N",
+    nrRegEtt: null, // ou o número do registro, se aplicável
+    ideMinLei: "Nome do Ministério ou Lei",
+    nrCertif: "Número do Certificado",
+    dtEmisCertif: "2023-01-01",
+    dtVencCertif: "2024-01-01",
+    nrProtRenov: null, // ou o protocolo de renovação, se aplicável
+    dtProtRenov: null, // ou a data do protocolo de renovação, se aplicável
+    dtDou: null, // ou a data de publicação no DOU, se aplicável
+    pagDou: null, // ou o número da página no DOU, se aplicável
+    nmCtt: "Nome do Contato",
+    cpfCtt: "12345678901",
+    foneFixo: null, // ou o telefone fixo, se aplicável
+    foneCel: null, // ou o telefone celular, se aplicável
+    email: "email@dominio.com",
+    nrSiafi: "123456",
+    ideEFR: "S",
+    website: null, // ou o website, se aplicável
+    logo: null, // ou o caminho para o logo, se aplicável
+    nmEnte: "Nome do Ente Federativo",
+    uf: "UF",
+    codMunic: null, // ou o código do município IBGE, se aplicável
+    indRPPS: "N",
+    subteto: "L",
+    vrSubteto: 99999.99,
+    indAcordoIsenMulta: "N",
+    indSitPJ: null, // ou o indicador de situação do empregador junto à RFB, se aplicável
+    obs: "Observações sobre o local",
+    obsPPP: null, // ou informações do PPP, se aplicável
+    obsASO: null // ou informações do ASO, se aplicável
+);
+
+// Supondo que você tenha um Request para criar um Local
+// $atualizarLocalRequest = new AtualizarLocalRequest(14, 17, $atualizararLocalDTO);
+// $response = $authConnector->send($atualizarLocalRequest);
 
 echo ($response);
