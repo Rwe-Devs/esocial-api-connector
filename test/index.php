@@ -18,6 +18,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
@@ -362,16 +363,18 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // SETORES
 
 // Criação de um exemplo de objeto CriarSetorDTO
-$criarSetorDTO = new CriarSetorDTO(
-    codigo_rh: "RH12346",
-    nome: "Desenvolvimento",
-    descricao: "Departamento de desenvolvimento de software",
-    ativo: true,
-    observacao_aso: "Nenhuma observação específica",
-    // data_de_inicio: new \DateTime("2023-01-01"),
-    // data_fim: new \DateTime("2024-01-01"),
-);
-$criarSetorRequest = new CriarSetorRequest(14, $criarSetorDTO);
-$response = $authConnector->send($criarSetorRequest);
+// $criarSetorDTO = new CriarSetorDTO(
+//     codigo_rh: "RH12346",
+//     nome: "Desenvolvimento",
+//     descricao: "Departamento de desenvolvimento de software",
+//     ativo: true,
+//     observacao_aso: "Nenhuma observação específica",
+//     // data_de_inicio: new \DateTime("2023-01-01"),
+//     // data_fim: new \DateTime("2024-01-01"),
+// );
+// $criarSetorRequest = new CriarSetorRequest(14, $criarSetorDTO);
+// $response = $authConnector->send($criarSetorRequest);
+
+$response = $authConnector->send(new ListarSetorRequest(14));
 
 echo ($response);
