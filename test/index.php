@@ -23,6 +23,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
 use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
@@ -375,6 +376,8 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // $criarSetorRequest = new CriarSetorRequest(14, $criarSetorDTO);
 // $response = $authConnector->send($criarSetorRequest);
 
-$response = $authConnector->send(new ListarSetorRequest(14));
+// $response = $authConnector->send(new ListarSetorRequest(14));
+$response = $authConnector->send(new MostrarSetorRequest(14, 4));
+
 
 echo ($response);
