@@ -6,12 +6,14 @@ use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
+use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
@@ -354,6 +356,22 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // $response = $authConnector->send($atualizarLocalRequest);
 
 // $response = $authConnector->send(new MostrarLocalRequest(14, 17));
-$response = $authConnector->send(new DeletarLocalRequest(14, 17));
+// $response = $authConnector->send(new DeletarLocalRequest(14, 17));
+
+
+// SETORES
+
+// Criação de um exemplo de objeto CriarSetorDTO
+$criarSetorDTO = new CriarSetorDTO(
+    codigo_rh: "RH12346",
+    nome: "Desenvolvimento",
+    descricao: "Departamento de desenvolvimento de software",
+    ativo: true,
+    observacao_aso: "Nenhuma observação específica",
+    // data_de_inicio: new \DateTime("2023-01-01"),
+    // data_fim: new \DateTime("2024-01-01"),
+);
+$criarSetorRequest = new CriarSetorRequest(14, $criarSetorDTO);
+$response = $authConnector->send($criarSetorRequest);
 
 echo ($response);
