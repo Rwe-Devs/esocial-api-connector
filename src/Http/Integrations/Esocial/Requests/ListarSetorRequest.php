@@ -7,7 +7,7 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição GET para listar todos os Empregadores.
+ * Requisição GET para listar todos os Setores do Empregador.
  */
 class ListarSetorRequest extends Request
 {
