@@ -35,8 +35,6 @@ class RegistroRequest extends Request implements HasBody
             'email' => $this->registroDTO->email,
             'password' => $this->registroDTO->password,
             'password_confirmation' => $this->registroDTO->password_confirmation,
-            'tpInsc' => $this->registroDTO->tpInsc,
-            'nrInsc' => $this->registroDTO->nrInsc,
         ];
     }
 

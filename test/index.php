@@ -30,7 +30,7 @@ use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 
 
-$apiUrl = 'http://localhost:8001/api/';
+$apiUrl = 'http://localhost:8000/api/';
 $token = '10|70Uftj5agc85s285vcD2RPE7m6pJSk9UmF1vDPe3523ce7fd';
 
 $serviceProvider = EsocialApiConnectorServiceProvider::class;
@@ -377,7 +377,7 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // $response = $authConnector->send($criarSetorRequest);
 
 // $response = $authConnector->send(new ListarSetorRequest(14));
-$response = $authConnector->send(new MostrarSetorRequest(14, 4));
+$response = $authConnector->send(new MostrarSetorRequest(14, 3));
 
 
 echo ($response);
