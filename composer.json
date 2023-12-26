@@ -2,6 +2,7 @@
   "name": "rwe-devs/esocial-api-connector",
   "type": "library",
   "license": "MIT",
+  "description": "Pacote para conexão com API de eSocial da RWE Sistemas",
   "autoload": {
     "psr-4": {
       "RweDevs\\EsocialApiConnector\\": "src/",
@@ -17,6 +18,7 @@
     }
   ],
   "require": {
+    "php": "^8.2",
     "saloonphp/saloon": "^3.0",
     "saloonphp/laravel-plugin": "^3.0",
     "illuminate/support": "^10.37"
