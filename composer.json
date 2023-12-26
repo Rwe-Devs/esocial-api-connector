@@ -1,20 +1,24 @@
 {
-    "name": "rwe-devs/esocial-api-connector",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "RweDevs\\EsocialApiConnector\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Victor Dracxler",
-            "email": "victordracxler@poli.ufrj.br"
-        }
-    ],
-    "require": {
-        "saloonphp/saloon": "^3.0",
-        "saloonphp/laravel-plugin": "^3.0"
+  "name": "rwe-devs/esocial-api-connector",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "RweDevs\\EsocialApiConnector\\": "src/",
+      "RweDevs\\EsocialApiConnector\\Esocial\\": "src/Http/Integrations/Esocial",
+      "RweDevs\\EsocialApiConnector\\Esocial\\Requests\\": "src/Http/Integrations/Esocial/Requests",
+      "RweDevs\\EsocialApiConnector\\DTO\\": "src/DTO"
     }
+  },
+  "authors": [
+    {
+      "name": "Victor Dracxler",
+      "email": "victordracxler@poli.ufrj.br"
+    }
+  ],
+  "require": {
+    "saloonphp/saloon": "^3.0",
+    "saloonphp/laravel-plugin": "^3.0",
+    "illuminate/support": "^10.37"
+  }
 }

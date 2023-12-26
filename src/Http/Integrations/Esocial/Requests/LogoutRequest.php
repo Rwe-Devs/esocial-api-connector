@@ -2,7 +2,6 @@
 
 namespace RweDevs\EsocialApiConnector\Esocial\Requests;
 
-use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -10,33 +9,37 @@ use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
- * Requisição POST para login de usuário.
+ * Requisição POST para logout de usuário.
  */
-class LoginRequest extends Request implements HasBody
+class LogoutRequest extends Request implements HasBody
 {
     use HasJsonBody;
     protected Method $method = Method::POST;
     protected ?string $connector = EsocialConnector::class;
 
 
+    private array $bodyArr;
+
     /**
      * Monta o 'body' da Request
      * 
-     * @param LoginDTO $loginDTO Recebe um objeto RegistroDTO que representa o body da requisição.
+     * @param string $email Email do usuário.
+     * @param string $password Senha do usuário.
      */
-    public function __construct(protected LoginDTO $loginDTO)
+    public function __construct(string $email, string $password)
     {
+        $this->bodyArr = [
+            "email" => $email,
+            "password" => $password,
+        ];
     }
     protected function defaultBody(): array
     {
-        return [
-            'email' => $this->loginDTO->email,
-            'password' => $this->loginDTO->password,
-        ];
+        return $this->bodyArr;
     }
 
     public function resolveEndpoint(): string
     {
-        return '/login';
+        return '/logout';
     }
 }
