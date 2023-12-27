@@ -394,9 +394,9 @@ $criarSetorDTO = new AtualizarSetorDTO( // Tá quebrando ao nulificar codigo-rh 
 // $criarSetorRequest = new CriarSetorRequest(2, $criarSetorDTO);
 // $response = $authConnector->send($criarSetorRequest);
 
-// $response = $authConnector->send(new ListarSetorRequest(2));
+$response = $authConnector->send(new ListarSetorRequest(2));
 // $response = $authConnector->send(new MostrarSetorRequest(2, 1));
-$response = $authConnector->send(new AtualizarSetorRequest(2, 1, $criarSetorDTO));
+// $response = $authConnector->send(new AtualizarSetorRequest(2, 1, $criarSetorDTO));
 // $response = $authConnector->send(new DeletarSetorRequest(14, 3));
 
 

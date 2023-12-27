@@ -22,8 +22,8 @@ class LoginDTO
     public static function fromRequest(Request $request): self
     {
         return new self(
-            $request->input('email'),
-            $request->input('password'),
+            email: $request->input('email'),
+            password: $request->input('password'),
         );
     }
 
