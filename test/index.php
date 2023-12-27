@@ -19,6 +19,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
@@ -388,8 +389,8 @@ $criarSetorDTO = new CriarSetorDTO( // Tá quebrando ao nulificar codigo-rh e de
 
 // ];
 // $outraDTO = new CriarSetorDTO(...$setorArr);
-$criarSetorRequest = new CriarSetorRequest(2, $criarSetorDTO);
-$response = $authConnector->send($criarSetorRequest);
+// $criarSetorRequest = new CriarSetorRequest(2, $criarSetorDTO);
+// $response = $authConnector->send($criarSetorRequest);
 
 // $response = $authConnector->send(new ListarSetorRequest(2));
 // $response = $authConnector->send(new MostrarSetorRequest(14, 3));
@@ -419,6 +420,8 @@ $criarAmbienteDTO = new CriarAmbienteDTO(
 // $criarAmbienteRequest = new CriarAmbienteRequest(3, $criarAmbienteDTO);
 // $response = $authConnector->send($criarAmbienteRequest);
 
+$response = $authConnector->send(new ListarAmbienteRequest(3));
 
-echo ($response);
+
+// echo ($response);
 dd(json_decode($response));

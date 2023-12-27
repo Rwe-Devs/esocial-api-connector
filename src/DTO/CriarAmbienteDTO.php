@@ -51,20 +51,20 @@ class CriarAmbienteDTO
     public static function fromRequest(Request $request): self
     {
         return new self(
-            $request->input('codigo'),
-            $request->input('nome'),
-            $request->input('identificacao_esocial'),
-            $request->input('area'),
-            $request->input('pe_direito'),
-            $request->input('piso'),
-            $request->input('teto'),
-            $request->input('iluminacao'),
-            $request->input('paredes'),
-            $request->input('ventilacao'),
-            $request->input('forro'),
-            $request->input('descricao_complementar'),
-            $request->input('data_de_inicio'),
-            $request->input('data_fim'),
+            codigo: $request->input('codigo'),
+            nome: $request->input('nome'),
+            identificacao_esocial: $request->input('identificacao_esocial'),
+            area: $request->input('area'),
+            pe_direito: $request->input('pe_direito'),
+            piso: $request->input('piso'),
+            teto: $request->input('teto'),
+            iluminacao: $request->input('iluminacao'),
+            paredes: $request->input('paredes'),
+            ventilacao: $request->input('ventilacao'),
+            forro: $request->input('forro'),
+            descricao_complementar: $request->input('descricao_complementar'),
+            data_de_inicio: $request->input('data_de_inicio'),
+            data_fim: $request->input('data_fim'),
         );
     }
 }
