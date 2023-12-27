@@ -35,7 +35,7 @@ class CriarSetorRequest extends Request implements HasBody
         return [
             'codigo_rh' => $this->criarSetorDTO->codigo_rh,
             'nome' => $this->criarSetorDTO->nome,
-            '$descricao' => $this->criarSetorDTO->descricao,
+            'descricao' => $this->criarSetorDTO->descricao,
             'ativo' => $this->criarSetorDTO->ativo,
             'observacao_aso' => $this->criarSetorDTO->observacao_aso,
             'data_de_inicio' => $this->criarSetorDTO->data_de_inicio,

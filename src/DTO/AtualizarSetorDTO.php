@@ -4,12 +4,11 @@ namespace RweDevs\EsocialApiConnector\DTO;
 
 use Illuminate\Http\Request;
 
-class CriarSetorDTO
+class AtualizarSetorDTO
 {
     /**
-     * DTO para criar um novo setor.
-     * 
-     * @param string $nome Nome do setor.
+     * DTO para atualizar um setor.
+     * @param string|null $nome Nome do setor.
      * @param string|null $codigo_rh Código RH do setor (opcional).
      * @param string|null $descricao Descrição do setor (opcional).
      * @param bool|null $ativo Status de ativação do setor.
@@ -18,10 +17,10 @@ class CriarSetorDTO
      * @param string|null $data_fim Data de término do setor (opcional).
      */
     public function __construct(
-        public string $nome,
+        public ?string $nome = null,
         public ?string $codigo_rh = null,
         public ?string $descricao = null,
-        public ?bool $ativo = null,
+        public ?bool $ativo = true,
         public ?string $observacao_aso = null,
         public ?string $data_de_inicio = null,
         public ?string $data_fim = null,
@@ -29,7 +28,7 @@ class CriarSetorDTO
     }
 
     /**
-     * Cria uma instância de CriarSetorDTO a partir de uma requisição.
+     * Cria uma instância de AtualizarSetorDTO a partir de uma requisição.
      *
      * @param Request $request A requisição do Laravel.
      * @return self

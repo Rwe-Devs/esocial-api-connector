@@ -27,10 +27,10 @@ class RegistroDTO
     public static function fromRequest(Request $request): self
     {
         return new self(
-            $request->input('name'),
-            $request->input('email'),
-            $request->input('password'),
-            $request->input('password_confirmation'),
+            name: $request->input('name'),
+            email: $request->input('email'),
+            password: $request->input('password'),
+            password_confirmation: $request->input('password_confirmation'),
         );
     }
 
