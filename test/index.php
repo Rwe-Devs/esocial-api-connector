@@ -4,6 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
@@ -12,6 +13,7 @@ use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
@@ -368,12 +370,12 @@ $response = $authConnector->send(new MostrarLocalRequest(2, 3));
 // SETORES
 
 // Criação de um exemplo de objeto CriarSetorDTO
-$criarSetorDTO = new CriarSetorDTO( // Tá quebrando ao nulificar codigo-rh e descricao
+$criarSetorDTO = new AtualizarSetorDTO( // Tá quebrando ao nulificar codigo-rh e descricao
     observacao_aso: "Nenhuma observação específica",
     data_de_inicio: "2023-01-01",
     data_fim: "2024-01-01",
-    // descricao: "null",
-    // codigo_rh: "RH1234426",
+    descricao: "Atualizado",
+    codigo_rh: "atualizou",
     nome: "Desenvolvimento",
     ativo: 1
 
@@ -393,8 +395,10 @@ $criarSetorDTO = new CriarSetorDTO( // Tá quebrando ao nulificar codigo-rh e de
 // $response = $authConnector->send($criarSetorRequest);
 
 // $response = $authConnector->send(new ListarSetorRequest(2));
-// $response = $authConnector->send(new MostrarSetorRequest(14, 3));
+// $response = $authConnector->send(new MostrarSetorRequest(2, 1));
+$response = $authConnector->send(new AtualizarSetorRequest(2, 1, $criarSetorDTO));
 // $response = $authConnector->send(new DeletarSetorRequest(14, 3));
+
 
 // AMBIENTES
 
@@ -420,8 +424,8 @@ $criarAmbienteDTO = new CriarAmbienteDTO(
 // $criarAmbienteRequest = new CriarAmbienteRequest(3, $criarAmbienteDTO);
 // $response = $authConnector->send($criarAmbienteRequest);
 
-$response = $authConnector->send(new ListarAmbienteRequest(3));
+// $response = $authConnector->send(new ListarAmbienteRequest(3));
 
 
-// echo ($response);
+echo ($response);
 dd(json_decode($response));
