@@ -16,6 +16,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
@@ -47,7 +48,7 @@ $authConnector = new EsocialConnector($apiUrl, $token);
 
 // REQUESTS DE AUTENTICAÇÃO
 
-// $registroDTO = new RegistroDTO('teste de user', 'teste7@teste.com', '12345678', '12345678', 1, 15580779788);
+// $registroDTO = new RegistroDTO('teste de user', 'teste27@teste.com', '12345678', '12345678', 1, 15580779788);
 // $registroDTOfromRequest = RegistroDTO::fromRequest($request);
 // $registro = new RegistroRequest($registroDTO);
 // $response = $connector->send($registro);
@@ -376,8 +377,9 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // $criarSetorRequest = new CriarSetorRequest(14, $criarSetorDTO);
 // $response = $authConnector->send($criarSetorRequest);
 
-// $response = $authConnector->send(new ListarSetorRequest(14));
-$response = $authConnector->send(new MostrarSetorRequest(14, 3));
+$response = $authConnector->send(new ListarSetorRequest(14));
+// $response = $authConnector->send(new MostrarSetorRequest(14, 3));
+// $response = $authConnector->send(new DeletarSetorRequest(14, 3));
 
 
-echo ($response);
+dd(json_decode($response));
