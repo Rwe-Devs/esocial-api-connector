@@ -27,6 +27,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
@@ -478,7 +479,7 @@ $request = new Request($requestData);
 // $criarFuncaoReq = new CriarFuncaoRequest(2, $criarFuncaoDTO);
 // $response = $authConnector->send($criarFuncaoReq);
 
-// $response = $authConnector->send(new ListarFuncaoRequest(2));
+$response = $authConnector->send(new ListarFuncaoRequest(2));
 
 // $request = new Request($requestData);
 
@@ -487,8 +488,8 @@ $request = new Request($requestData);
 // $criarFuncaoReq = new AtualizarFuncaoRequest(2, 3, $criarFuncaoDTO);
 // $response = $authConnector->send($criarFuncaoReq);
 
-$response = $authConnector->send(new MostrarFuncaoRequest(2, 2));
-
+// $response = $authConnector->send(new MostrarFuncaoRequest(2, 2));
+// $response = $authConnector->send(new DeletarFuncaoRequest(2, 2));
 
 
 echo ($response);
