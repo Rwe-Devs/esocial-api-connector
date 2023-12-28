@@ -20,6 +20,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
@@ -427,7 +428,7 @@ $criarAmbienteDTO = new CriarAmbienteDTO(
 // $criarAmbienteRequest = new CriarAmbienteRequest(3, $criarAmbienteDTO);
 // $response = $authConnector->send($criarAmbienteRequest);
 
-// $response = $authConnector->send(new ListarAmbienteRequest(3));
+$response = $authConnector->send(new ListarAmbienteRequest(3));
 // $response = $authConnector->send(new MostrarAmbienteRequest(3, 3));
 
 $atualizarAmbienteDTO = new AtualizarAmbienteDTO(
@@ -446,8 +447,10 @@ $atualizarAmbienteDTO = new AtualizarAmbienteDTO(
     data_de_inicio: "2023/01/01",
     data_fim: "2023/12/31"
 );
-$atualizarAmbienteRequest = new AtualizarAmbienteRequest(3, 3, $atualizarAmbienteDTO);
-$response = $authConnector->send($atualizarAmbienteRequest);
+// $atualizarAmbienteRequest = new AtualizarAmbienteRequest(3, 3, $atualizarAmbienteDTO);
+// $response = $authConnector->send($atualizarAmbienteRequest);
+
+// $response = $authConnector->send(new DeletarAmbienteRequest(3, 4));
 
 
 echo ($response);
