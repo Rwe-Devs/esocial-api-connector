@@ -38,6 +38,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
@@ -482,9 +483,11 @@ $request = new Request($requestData);
 // $request = new Request($requestData);
 
 // // Utiliza o método fromRequest para criar uma instância de CriarFuncaoDTO
-$criarFuncaoDTO = AtualizarFuncaoDTO::fromRequest($request);
-$criarFuncaoReq = new AtualizarFuncaoRequest(2, 3, $criarFuncaoDTO);
-$response = $authConnector->send($criarFuncaoReq);
+// $criarFuncaoDTO = AtualizarFuncaoDTO::fromRequest($request);
+// $criarFuncaoReq = new AtualizarFuncaoRequest(2, 3, $criarFuncaoDTO);
+// $response = $authConnector->send($criarFuncaoReq);
+
+$response = $authConnector->send(new MostrarFuncaoRequest(2, 2));
 
 
 
