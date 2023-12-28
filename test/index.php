@@ -32,6 +32,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarFuncaoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
@@ -45,6 +46,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncaoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
@@ -500,7 +502,7 @@ $request = new Request($requestData);
 
 $criarFuncionarioDTO = new CriarFuncionarioDTO(
     nome: 'João da Silva',
-    codigo: 'FUNC001',
+    codigo: 'FUNC01',
     apelido: 'João',
     nascimento: '1980-01-01',
     naturalidade: 'São Paulo',
@@ -525,7 +527,7 @@ $criarFuncionarioDTO = new CriarFuncionarioDTO(
     email: 'joao.silva@email.com',
     tipo_de_registro: 'Tipo X',
     valido_a_partir: '2023-01-01',
-    matricula: 'MTR123456',
+    matricula: 'MTR2346',
     local_id: 3, // Supondo que o local tenha ID 1
     setor_id: 1, // Supondo que o setor tenha ID 2
     ambiente_id: 4, // Supondo que o ambiente tenha ID 3
@@ -595,8 +597,14 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
     trabalho_em_altura: false
 );
 
-$atualizarFuncionarioReq = new AtualizarFuncionarioRequest(1, $atualizarFuncionarioDTO);
-$response = $authConnector->send($atualizarFuncionarioReq);
+// $atualizarFuncionarioReq = new AtualizarFuncionarioRequest(1, $atualizarFuncionarioDTO);
+// $response = $authConnector->send($atualizarFuncionarioReq);
+
+// $response = $authConnector->send(new DeletarFuncionarioRequest(1));
+$response = $authConnector->send(new MostrarFuncionarioRequest(5));
+
+
+
 
 echo ($response);
 dd(json_decode($response));

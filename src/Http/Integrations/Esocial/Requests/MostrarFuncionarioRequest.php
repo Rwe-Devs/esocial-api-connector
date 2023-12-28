@@ -9,7 +9,7 @@ use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 /**
  * Requisição GET para mostrar um Empregador.
  */
-class MostrarEmpregadorRequest extends Request
+class MostrarFuncionarioRequest extends Request
 {
     protected Method $method = Method::GET;
     protected ?string $connector = EsocialConnector::class;
@@ -18,15 +18,15 @@ class MostrarEmpregadorRequest extends Request
     /**
      * Mostra um empregador específico.
      * 
-     * @param string $idEmpregador Id do Empregador a ser mostrado.
+     * @param string $idFuncionario Id do Funcionario a ser mostrado.
      */
-    public function __construct(public string $idEmpregador)
+    public function __construct(public string $idFuncionario)
     {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/empregadores/' . $this->idEmpregador;
+        return '/funcionarios/' . $this->idFuncionario;
     }
 }
