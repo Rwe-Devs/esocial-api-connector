@@ -2,6 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use RweDevs\EsocialApiConnector\DTO\AtualizarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
@@ -11,6 +12,7 @@ use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
@@ -27,6 +29,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarSetorRequest;
@@ -425,6 +428,26 @@ $criarAmbienteDTO = new CriarAmbienteDTO(
 // $response = $authConnector->send($criarAmbienteRequest);
 
 // $response = $authConnector->send(new ListarAmbienteRequest(3));
+// $response = $authConnector->send(new MostrarAmbienteRequest(3, 3));
+
+$atualizarAmbienteDTO = new AtualizarAmbienteDTO(
+    codigo: "atuala",
+    nome: "Sala de Desenvolvimento brabo",
+    identificacao_esocial: "SALADEV123",
+    area: "30m2",
+    // pe_direito: "2.5m",
+    // piso: "Porcelanato",
+    // teto: "Gesso",
+    // iluminacao: "LED",
+    paredes: "Pintura Látex",
+    ventilacao: "Ar-condicionado",
+    forro: "Gesso",
+    descricao_complementar: "Sala destinada ao time de desenvolvimento de software.",
+    data_de_inicio: "2023/01/01",
+    data_fim: "2023/12/31"
+);
+$atualizarAmbienteRequest = new AtualizarAmbienteRequest(3, 3, $atualizarAmbienteDTO);
+$response = $authConnector->send($atualizarAmbienteRequest);
 
 
 echo ($response);
