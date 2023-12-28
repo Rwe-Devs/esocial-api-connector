@@ -11,6 +11,7 @@ use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarFuncaoDTO;
+use RweDevs\EsocialApiConnector\DTO\CriarFuncionarioDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
@@ -23,6 +24,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarFuncaoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\CriarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
@@ -33,6 +35,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarFuncaoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\ListarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
@@ -491,6 +494,58 @@ $response = $authConnector->send(new ListarFuncaoRequest(2));
 // $response = $authConnector->send(new MostrarFuncaoRequest(2, 2));
 // $response = $authConnector->send(new DeletarFuncaoRequest(2, 2));
 
+// FUNCIONARIOS
+
+$criarFuncionarioDTO = new CriarFuncionarioDTO(
+    nome: 'João da Silva',
+    codigo: 'FUNC001',
+    apelido: 'João',
+    nascimento: '1980-01-01',
+    naturalidade: 'São Paulo',
+    nacionalidade: 'Brasileira',
+    estado_civil: 'Casado',
+    raca: 'Branca',
+    sexo: 'Masculino',
+    cpf: '123.456.789-00',
+    rg: 'MG-12.345.678',
+    nit: '1234567890',
+    ctps: '123456 Série 00',
+    escolaridade: 'Superior Completo',
+    endereco: 'Rua Exemplo, 123',
+    numero: '123',
+    complemento: 'Apto 101',
+    bairro: 'Centro',
+    municipio: 'Belo Horizonte',
+    cep: '30100-000',
+    uf: 'MG',
+    telefone1: '31 1234-5678',
+    telefone2: '31 98765-4321',
+    email: 'joao.silva@email.com',
+    tipo_de_registro: 'Tipo X',
+    valido_a_partir: '2023-01-01',
+    matricula: 'MTR123456',
+    local_id: 3, // Supondo que o local tenha ID 1
+    setor_id: 1, // Supondo que o setor tenha ID 2
+    ambiente_id: 4, // Supondo que o ambiente tenha ID 3
+    funcao_id: 2, // Supondo que a função tenha ID 4
+    cargo: 'Desenvolvedor',
+    identificacao_esocial: 'ID eSocial',
+    cnpj: '00.000.000/0001-00',
+    parecer_aso: 'Apto para trabalho',
+    filial_prev_social: 'Filial X',
+    area: 'Desenvolvimento',
+    br_pdh: 'Informação BR PDH',
+    gfip: 'Código GFIP',
+    turno: 'Manhã',
+    carga_horaria: '40 horas semanais',
+    regime_de_revezamento: 'Não',
+    trabalho_em_altura: false
+);
+
+// $criarFuncionarioReq = new CriarFuncionarioRequest($criarFuncionarioDTO);
+// $response = $authConnector->send($criarFuncionarioReq);
+
+$response = $authConnector->send(new ListarFuncionarioRequest);
 
 echo ($response);
 dd(json_decode($response));
