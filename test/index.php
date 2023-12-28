@@ -2,12 +2,14 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use Illuminate\Http\Request;
 use RweDevs\EsocialApiConnector\DTO\AtualizarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
+use RweDevs\EsocialApiConnector\DTO\CriarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
@@ -18,6 +20,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\CriarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
@@ -26,6 +29,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\ListarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
@@ -367,7 +371,7 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // $atualizarLocalRequest = new AtualizarLocalRequest(14, 17, $atualizararLocalDTO);
 // $response = $authConnector->send($atualizarLocalRequest);
 
-$response = $authConnector->send(new MostrarLocalRequest(2, 3));
+// $response = $authConnector->send(new MostrarLocalRequest(2, 3));
 // $response = $authConnector->send(new DeletarLocalRequest(14, 17));
 
 
@@ -398,7 +402,7 @@ $criarSetorDTO = new AtualizarSetorDTO( // Tá quebrando ao nulificar codigo-rh 
 // $criarSetorRequest = new CriarSetorRequest(2, $criarSetorDTO);
 // $response = $authConnector->send($criarSetorRequest);
 
-$response = $authConnector->send(new ListarSetorRequest(2));
+// $response = $authConnector->send(new ListarSetorRequest(2));
 // $response = $authConnector->send(new MostrarSetorRequest(2, 1));
 // $response = $authConnector->send(new AtualizarSetorRequest(2, 1, $criarSetorDTO));
 // $response = $authConnector->send(new DeletarSetorRequest(14, 3));
@@ -428,7 +432,7 @@ $criarAmbienteDTO = new CriarAmbienteDTO(
 // $criarAmbienteRequest = new CriarAmbienteRequest(3, $criarAmbienteDTO);
 // $response = $authConnector->send($criarAmbienteRequest);
 
-$response = $authConnector->send(new ListarAmbienteRequest(3));
+// $response = $authConnector->send(new ListarAmbienteRequest(3));
 // $response = $authConnector->send(new MostrarAmbienteRequest(3, 3));
 
 $atualizarAmbienteDTO = new AtualizarAmbienteDTO(
@@ -451,6 +455,27 @@ $atualizarAmbienteDTO = new AtualizarAmbienteDTO(
 // $response = $authConnector->send($atualizarAmbienteRequest);
 
 // $response = $authConnector->send(new DeletarAmbienteRequest(3, 4));
+
+// Simula uma requisição com dados para a função
+// $requestData = [
+//     'codigo' => 'DEV123',
+//     'nome' => 'Desenvolvedor de Software',
+//     'cbo' => '317210',
+//     'atividade' => 'Desenvolvimento e manutenção de software.',
+//     'requisitos' => 'Conhecimento em Laravel e PHP.',
+//     'data_de_inicio' => '2023-01-01',
+//     'data_fim' => '2024-01-01',
+// ];
+
+// // Cria uma instância do Request com os dados da simulação
+// $request = new Request($requestData);
+
+// // Utiliza o método fromRequest para criar uma instância de CriarFuncaoDTO
+// $criarFuncaoDTO = CriarFuncaoDTO::fromRequest($request);
+// $criarFuncaoReq = new CriarFuncaoRequest(2, $criarFuncaoDTO);
+// $response = $authConnector->send($criarFuncaoReq);
+
+$response = $authConnector->send(new ListarFuncaoRequest(2));
 
 
 echo ($response);
