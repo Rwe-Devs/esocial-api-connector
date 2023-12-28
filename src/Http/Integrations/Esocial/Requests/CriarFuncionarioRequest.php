@@ -81,7 +81,6 @@ class CriarFuncionarioRequest extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        // Defina o endpoint correto para a criação do funcionário. Este é apenas um exemplo.
         return '/funcionarios';
     }
 }

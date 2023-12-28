@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use RweDevs\EsocialApiConnector\DTO\AtualizarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncaoDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarFuncionarioDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
@@ -19,6 +20,7 @@ use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarFuncaoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
@@ -482,7 +484,7 @@ $request = new Request($requestData);
 // $criarFuncaoReq = new CriarFuncaoRequest(2, $criarFuncaoDTO);
 // $response = $authConnector->send($criarFuncaoReq);
 
-$response = $authConnector->send(new ListarFuncaoRequest(2));
+// $response = $authConnector->send(new ListarFuncaoRequest(2));
 
 // $request = new Request($requestData);
 
@@ -545,7 +547,56 @@ $criarFuncionarioDTO = new CriarFuncionarioDTO(
 // $criarFuncionarioReq = new CriarFuncionarioRequest($criarFuncionarioDTO);
 // $response = $authConnector->send($criarFuncionarioReq);
 
-$response = $authConnector->send(new ListarFuncionarioRequest);
+// $response = $authConnector->send(new ListarFuncionarioRequest);
+
+$atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
+    nome: 'João da Silva atualizado',
+    codigo: 'FUNC001',
+    apelido: 'João',
+    nascimento: '1980-01-01',
+    naturalidade: 'São Paulo',
+    nacionalidade: 'Brasileira',
+    estado_civil: 'Casado',
+    raca: 'Branca',
+    sexo: 'Masculino',
+    cpf: '123.456.789-00',
+    rg: 'MG-12.345.678',
+    nit: '1234567890',
+    ctps: '123456 Série 00',
+    escolaridade: 'Superior Completo',
+    endereco: 'Rua Exemplo, 123',
+    numero: '123',
+    complemento: 'Apto 101',
+    bairro: 'Centro',
+    municipio: 'Belo Horizonte',
+    cep: '30100-000',
+    uf: 'MG',
+    telefone1: '31 1234-5678',
+    telefone2: '31 98765-4321',
+    email: 'joao.silva@email.com',
+    tipo_de_registro: 'Tipo X',
+    valido_a_partir: '2023-01-01',
+    matricula: 'MTR123456',
+    local_id: 3, // Supondo que o local tenha ID 1
+    setor_id: 1, // Supondo que o setor tenha ID 2
+    ambiente_id: 4, // Supondo que o ambiente tenha ID 3
+    funcao_id: 2, // Supondo que a função tenha ID 4
+    cargo: 'Desenvolvedor',
+    identificacao_esocial: 'ID eSocial',
+    cnpj: '00.000.000/0001-00',
+    parecer_aso: 'Apto para trabalho',
+    filial_prev_social: 'Filial X',
+    area: 'Desenvolvimento',
+    br_pdh: 'Informação BR PDH',
+    gfip: 'Código GFIP',
+    turno: 'Manhã',
+    carga_horaria: '40 horas semanais',
+    regime_de_revezamento: 'Não',
+    trabalho_em_altura: false
+);
+
+$atualizarFuncionarioReq = new AtualizarFuncionarioRequest(1, $atualizarFuncionarioDTO);
+$response = $authConnector->send($atualizarFuncionarioReq);
 
 echo ($response);
 dd(json_decode($response));
