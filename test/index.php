@@ -5,6 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use Illuminate\Http\Request;
 use RweDevs\EsocialApiConnector\DTO\AtualizarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
@@ -16,6 +17,7 @@ use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
@@ -457,25 +459,33 @@ $atualizarAmbienteDTO = new AtualizarAmbienteDTO(
 // $response = $authConnector->send(new DeletarAmbienteRequest(3, 4));
 
 // Simula uma requisição com dados para a função
-// $requestData = [
-//     'codigo' => 'DEV123',
-//     'nome' => 'Desenvolvedor de Software',
-//     'cbo' => '317210',
-//     'atividade' => 'Desenvolvimento e manutenção de software.',
-//     'requisitos' => 'Conhecimento em Laravel e PHP.',
-//     'data_de_inicio' => '2023-01-01',
-//     'data_fim' => '2024-01-01',
-// ];
+$requestData = [
+    'codigo' => 'DEV123',
+    'nome' => 'Desenvolvedor de Software atualizado',
+    'cbo' => '317210',
+    'atividade' => 'Desenvolvimento e manutenção de software.',
+    'requisitos' => 'Conhecimento em Laravel e PHP.',
+    'data_de_inicio' => '2023-01-01',
+    'data_fim' => '2024-01-01',
+];
 
 // // Cria uma instância do Request com os dados da simulação
-// $request = new Request($requestData);
+$request = new Request($requestData);
 
 // // Utiliza o método fromRequest para criar uma instância de CriarFuncaoDTO
 // $criarFuncaoDTO = CriarFuncaoDTO::fromRequest($request);
 // $criarFuncaoReq = new CriarFuncaoRequest(2, $criarFuncaoDTO);
 // $response = $authConnector->send($criarFuncaoReq);
 
-$response = $authConnector->send(new ListarFuncaoRequest(2));
+// $response = $authConnector->send(new ListarFuncaoRequest(2));
+
+// $request = new Request($requestData);
+
+// // Utiliza o método fromRequest para criar uma instância de CriarFuncaoDTO
+$criarFuncaoDTO = AtualizarFuncaoDTO::fromRequest($request);
+$criarFuncaoReq = new AtualizarFuncaoRequest(2, 3, $criarFuncaoDTO);
+$response = $authConnector->send($criarFuncaoReq);
+
 
 
 echo ($response);
