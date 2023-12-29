@@ -9,6 +9,7 @@ use RweDevs\EsocialApiConnector\DTO\AtualizarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncionarioDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarGradeFuncionalDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarResponsavelTecnicoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
@@ -16,6 +17,7 @@ use RweDevs\EsocialApiConnector\DTO\CriarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarFuncionarioDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarGradeFuncionalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
+use RweDevs\EsocialApiConnector\DTO\CriarResponsavelTecnicoDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
@@ -25,6 +27,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarResponsavelTecnicoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
@@ -32,6 +35,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\CriarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\CriarResponsavelTecnicoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
@@ -629,22 +633,56 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 6));
 // $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
 
-// Route::group([
-//     'prefix' => 'tabela',
-//     'controller' => TabelaController::class
-// ], function () {
-//     Route::get('/cnae', 'cnae');
-//     Route::get('/construtoras', 'construtoras');
-//     Route::get('/cooperativas', 'cooperativas');
-//     Route::get('/desoneracaodefolha', 'desoneracaodefolha');
-//     Route::get('/indopccp', 'indopccp');
-//     Route::get('/indoptregeletron', 'indoptregeletron');
-//     Route::get('/8', 'tabela8');
-//     Route::get('/24', 'tabela24');
-//     Route::get('/27', 'tabela27');
-// });
 
-$response = $authConnector->send(new Tabela27Request);
+// $response = $authConnector->send(new Tabela27Request);
+
+$criarResponsavelTecnicoDTO = new CriarResponsavelTecnicoDTO(
+    codigo: 'RES001',
+    nome: 'Ana Martins',
+    funcao: 'Engenheira de Segurança do Trabalho',
+    crm_crea_mte: '123456',
+    especialidade: 'Engenharia de Segurança',
+    rg: 'MG-12.345.678',
+    cpf: '123.456.789-00',
+    nascimento: '1985-01-01',
+    // nacionalidade: 'Brasileira',
+    // naturalidade: 'São Paulo',
+    // sexo: 'Feminino',
+    // ativo: true,
+    // telefone: '31 1234-5678',
+    // celular: '31 98765-4321',
+    endereco: 'Rua Exemplo, 123',
+    numero: '123',
+    bairro: 'Centro',
+    municipio: 'Belo Horizonte',
+    cep: '30100-000',
+    uf: 'MG'
+);
+$atualizarResponsavelTecnicoDTO = new AtualizarResponsavelTecnicoDTO(
+    codigo: 'RES001',
+    nome: 'Atualizada',
+    funcao: 'Engenheira de Segurança do Trabalho',
+    crm_crea_mte: '123456',
+    especialidade: 'Engenharia de Segurança',
+    rg: 'MG-12.345.678',
+    cpf: '123.456.789-00',
+    nascimento: '1985-01-01',
+    nacionalidade: 'Brasileira',
+    naturalidade: 'São Paulo',
+    sexo: 'Feminino',
+    ativo: true,
+    telefone: '31 1234-5678',
+    celular: '31 98765-4321',
+    endereco: 'Rua Exemplo, 123',
+    numero: '123',
+    bairro: 'Centro',
+    municipio: 'Belo Horizonte',
+    cep: '30100-000',
+    uf: 'MG'
+);
+
+// $response = $authConnector->send(new CriarResponsavelTecnicoRequest(1, $criarResponsavelTecnicoDTO));
+$response = $authConnector->send(new AtualizarResponsavelTecnicoRequest(1, 7, $atualizarResponsavelTecnicoDTO));
 
 echo ($response);
 dd(json_decode($response));
