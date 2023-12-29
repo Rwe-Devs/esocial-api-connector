@@ -57,6 +57,14 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\Tabela24Request;
+use RweDevs\EsocialApiConnector\Esocial\Requests\Tabela27Request;
+use RweDevs\EsocialApiConnector\Esocial\Requests\Tabela8Request;
+use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaCnaeRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaConstrutorasRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaCooperativasRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaDesoneracaoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaIndOptRegEletronRequest;
 use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
@@ -620,6 +628,23 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 
 // $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 6));
 // $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
+
+// Route::group([
+//     'prefix' => 'tabela',
+//     'controller' => TabelaController::class
+// ], function () {
+//     Route::get('/cnae', 'cnae');
+//     Route::get('/construtoras', 'construtoras');
+//     Route::get('/cooperativas', 'cooperativas');
+//     Route::get('/desoneracaodefolha', 'desoneracaodefolha');
+//     Route::get('/indopccp', 'indopccp');
+//     Route::get('/indoptregeletron', 'indoptregeletron');
+//     Route::get('/8', 'tabela8');
+//     Route::get('/24', 'tabela24');
+//     Route::get('/27', 'tabela27');
+// });
+
+$response = $authConnector->send(new Tabela27Request);
 
 echo ($response);
 dd(json_decode($response));
