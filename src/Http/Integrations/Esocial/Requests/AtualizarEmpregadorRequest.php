@@ -21,11 +21,11 @@ class AtualizarEmpregadorRequest extends Request implements HasBody
 
     /**
      * Monta o 'body' da Request para atualizar dados de Empregador
-     * 
+     * @param $idEmpregador Id do empregador
      * @param AtualizarEmpregadorDTO $atualizarEmpregadorDTO Recebe um objeto AtualizarEmpregadorDTO que representa o body da requisição.
      */
     public function __construct(
-        public string $id,
+        public string $idEmpregador,
         protected AtualizarEmpregadorDTO $atualizarEmpregadorDTO
     ) {
     }
@@ -85,6 +85,6 @@ class AtualizarEmpregadorRequest extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return '/empregadores' . '/' . $this->id;
+        return '/empregadores/' . $this->idEmpregador;
     }
 }

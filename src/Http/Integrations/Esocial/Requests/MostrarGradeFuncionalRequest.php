@@ -7,26 +7,27 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição GET para listar todos os Ambientes do Local.
+ * Requisição GET para listar uma Grade Funcional.
  */
-class ListarAmbienteRequest extends Request
+class MostrarGradeFuncionalRequest extends Request
 {
     protected Method $method = Method::GET;
     protected ?string $connector = EsocialConnector::class;
 
 
     /**
-     * Lista todos os Ambientes do Local
+     * Lista uma Grade Funcional.
      * 
      * @param string $idLocal Id do Local.
+     * @param string $idGrade Id da Grade Funcional.
      */
-    public function __construct(public string $idLocal)
+    public function __construct(public string $idLocal, public string $idGrade)
     {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/local/' . $this->idLocal . '/ambientes';
+        return '/local/' . $this->idLocal . '/grade_funcional/' . $this->idGrade;
     }
 }

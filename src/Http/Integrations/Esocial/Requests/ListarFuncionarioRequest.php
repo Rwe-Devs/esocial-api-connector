@@ -7,26 +7,25 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição GET para listar todos os Empregadores.
+ * Requisição GET para listar todos os Funcionários.
  */
-class ListarLocalRequest extends Request
+class ListarFuncionarioRequest extends Request
 {
     protected Method $method = Method::GET;
     protected ?string $connector = EsocialConnector::class;
 
 
     /**
-     * Lista todos os Locais de Trabalho do Empregador
+     * Lista todos os funcionários do usuário.
      * 
-     * @param string $idEmpregador Id do Empregador.
      */
-    public function __construct(public string $idEmpregador)
+    public function __construct()
     {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/empregador/' . $this->idEmpregador . '/locais';
+        return '/funcionarios';
     }
 }

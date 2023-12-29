@@ -18,15 +18,15 @@ class MostrarEmpregadorRequest extends Request
     /**
      * Mostra um empregador específico.
      * 
-     * @param string $id Id do Empregador a ser mostrado.
+     * @param string $idEmpregador Id do Empregador a ser mostrado.
      */
-    public function __construct(public string $id)
+    public function __construct(public string $idEmpregador)
     {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/empregadores/' . $this->id;
+        return '/empregadores/' . $this->idEmpregador;
     }
 }

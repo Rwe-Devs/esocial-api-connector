@@ -7,26 +7,26 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição GET para listar todos os Empregadores.
+ * Requisição GET para listar todas as Grades Funcionais do Local.
  */
-class ListarLocalRequest extends Request
+class ListarGradeFuncionalRequest extends Request
 {
     protected Method $method = Method::GET;
     protected ?string $connector = EsocialConnector::class;
 
 
     /**
-     * Lista todos os Locais de Trabalho do Empregador
+     * Lista todas as Grades Funcionais do Local.
      * 
-     * @param string $idEmpregador Id do Empregador.
+     * @param string $idLocal Id do Local.
      */
-    public function __construct(public string $idEmpregador)
+    public function __construct(public string $idLocal)
     {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/empregador/' . $this->idEmpregador . '/locais';
+        return '/local/' . $this->idLocal . '/grade_funcional';
     }
 }

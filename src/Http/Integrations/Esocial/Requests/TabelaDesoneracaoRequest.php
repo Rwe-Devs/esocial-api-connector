@@ -7,26 +7,25 @@ use Saloon\Http\Request;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 
 /**
- * Requisição GET para listar todos os Empregadores.
+ * Requisição GET para listar a tabela de Desoneração de Folha.
  */
-class ListarLocalRequest extends Request
+class TabelaDesoneracaoRequest extends Request
 {
     protected Method $method = Method::GET;
     protected ?string $connector = EsocialConnector::class;
 
 
     /**
-     * Lista todos os Locais de Trabalho do Empregador
+     * Lista a tabela de Desoneração de Folha
      * 
-     * @param string $idEmpregador Id do Empregador.
      */
-    public function __construct(public string $idEmpregador)
+    public function __construct()
     {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/empregador/' . $this->idEmpregador . '/locais';
+        return 'tabela/desoneracaodefolha';
     }
 }

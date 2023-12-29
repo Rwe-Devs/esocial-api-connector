@@ -9,14 +9,14 @@ use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 /**
  * Requisição GET para listar todos os Empregadores.
  */
-class ListarLocalRequest extends Request
+class ListarFuncaoRequest extends Request
 {
     protected Method $method = Method::GET;
     protected ?string $connector = EsocialConnector::class;
 
 
     /**
-     * Lista todos os Locais de Trabalho do Empregador
+     * Lista todas as Funções do Empregador
      * 
      * @param string $idEmpregador Id do Empregador.
      */
@@ -27,6 +27,6 @@ class ListarLocalRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return '/empregador/' . $this->idEmpregador . '/locais';
+        return '/empregador/' . $this->idEmpregador . '/funcoes';
     }
 }
