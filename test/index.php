@@ -43,6 +43,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarResponsavelTecnicoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
@@ -686,8 +687,9 @@ $atualizarResponsavelTecnicoDTO = new AtualizarResponsavelTecnicoDTO(
 // $response = $authConnector->send(new CriarResponsavelTecnicoRequest(1, $criarResponsavelTecnicoDTO));
 // $response = $authConnector->send(new AtualizarResponsavelTecnicoRequest(1, 7, $atualizarResponsavelTecnicoDTO));
 
-$response = $authConnector->send(new ListarResponsavelTecnicoRequest(1));
-$response = $authConnector->send(new MostrarResponsavelTecnicoRequest(1, 6));
+// $response = $authConnector->send(new ListarResponsavelTecnicoRequest(1));
+// $response = $authConnector->send(new MostrarResponsavelTecnicoRequest(1, 6));
+// $response = $authConnector->send(new DeletarResponsavelTecnicoRequest(1, 6));
 
 echo ($response);
 dd(json_decode($response));
