@@ -7,6 +7,7 @@ use RweDevs\EsocialApiConnector\DTO\AtualizarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncionarioDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarGradeFuncionalDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
@@ -22,6 +23,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarFuncionarioRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
@@ -50,6 +52,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncionarioRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
@@ -608,8 +611,13 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // GRADE FUNCIONAL
 // $response = $authConnector->send(new ListarGradeFuncionalRequest(1));
 
-$criarGradeDto = new CriarGradeFuncionalDTO('grade 1', 5, 1);
-$response = $authConnector->send(new CriarGradeFuncionalRequest(1, $criarGradeDto));
+// $criarGradeDto = new CriarGradeFuncionalDTO('grade 1', 5, 1);
+// $response = $authConnector->send(new CriarGradeFuncionalRequest(1, $criarGradeDto));
+
+// $atualizarGradeDto = new AtualizarGradeFuncionalDTO('grade atualizada', 5, 1);
+// $response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 6, $atualizarGradeDto));
+
+$response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 6));
 
 echo ($response);
 dd(json_decode($response));
