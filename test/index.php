@@ -50,6 +50,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\ListarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\ListarResponsavelTecnicoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LogoutRequest;
@@ -59,6 +60,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncionarioRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarResponsavelTecnicoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\Tabela24Request;
@@ -682,7 +684,10 @@ $atualizarResponsavelTecnicoDTO = new AtualizarResponsavelTecnicoDTO(
 );
 
 // $response = $authConnector->send(new CriarResponsavelTecnicoRequest(1, $criarResponsavelTecnicoDTO));
-$response = $authConnector->send(new AtualizarResponsavelTecnicoRequest(1, 7, $atualizarResponsavelTecnicoDTO));
+// $response = $authConnector->send(new AtualizarResponsavelTecnicoRequest(1, 7, $atualizarResponsavelTecnicoDTO));
+
+$response = $authConnector->send(new ListarResponsavelTecnicoRequest(1));
+$response = $authConnector->send(new MostrarResponsavelTecnicoRequest(1, 6));
 
 echo ($response);
 dd(json_decode($response));
