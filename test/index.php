@@ -37,6 +37,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarFuncionarioRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
@@ -617,7 +618,8 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $atualizarGradeDto = new AtualizarGradeFuncionalDTO('grade atualizada', 5, 1);
 // $response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 6, $atualizarGradeDto));
 
-$response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 6));
+// $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 6));
+// $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
 
 echo ($response);
 dd(json_decode($response));
