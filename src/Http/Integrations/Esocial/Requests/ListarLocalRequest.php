@@ -18,15 +18,15 @@ class ListarLocalRequest extends Request
     /**
      * Lista todos os Locais de Trabalho do Empregador
      * 
-     * @param string $id Id do Empregador.
+     * @param string $idEmpregador Id do Empregador.
      */
-    public function __construct(public string $id)
+    public function __construct(public string $idEmpregador)
     {
 
     }
 
     public function resolveEndpoint(): string
     {
-        return '/empregador/' . $this->id . '/locais';
+        return '/empregador/' . $this->idEmpregador . '/locais';
     }
 }

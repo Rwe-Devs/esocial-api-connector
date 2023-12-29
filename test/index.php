@@ -56,7 +56,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 
 
 $apiUrl = 'http://localhost:8000/api/';
-$token = '1|jcKmdowYrYeCwyaCXs2wQq4WptFg42HhZ2fNy0vkca1de4ee';
+$token = '1|7Mk7SUPgYLZkUvcPa31wo1ZPss52piwcwCxDUelJf6f61c80';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
@@ -197,11 +197,9 @@ $empregadorDataArray = [
 
 // Criando a requisição com a DTO
 // $criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
-
-// Enviando a requisição através do conector
 // $response = $authConnector->send($criarEmpregadorRequest);
 
-// $response = $authConnector->send(new MostrarEmpregadorRequest(2));
+// $response = $authConnector->send(new MostrarEmpregadorRequest(1));
 
 
 // Substitua os valores a seguir pelos dados reais do empregador
@@ -267,7 +265,7 @@ $empregadorDataArray = [
 
 // VER LOCAIS
 
-// $response = $authConnector->send(new ListarLocalRequest(14));
+// $response = $authConnector->send(new ListarLocalRequest(1));
 
 $criarLocalDTO = new CriarLocalDTO(
     codigo: 65,
@@ -382,14 +380,14 @@ $atualizararLocalDTO = new AtualizarLocalDTO(
 // $atualizarLocalRequest = new AtualizarLocalRequest(14, 17, $atualizararLocalDTO);
 // $response = $authConnector->send($atualizarLocalRequest);
 
-// $response = $authConnector->send(new MostrarLocalRequest(2, 3));
+// $response = $authConnector->send(new MostrarLocalRequest(1, 1));
 // $response = $authConnector->send(new DeletarLocalRequest(14, 17));
 
 
 // SETORES
 
 // Criação de um exemplo de objeto CriarSetorDTO
-$criarSetorDTO = new AtualizarSetorDTO( // Tá quebrando ao nulificar codigo-rh e descricao
+$criarSetorDTO = new CriarSetorDTO( // Tá quebrando ao nulificar codigo-rh e descricao
     observacao_aso: "Nenhuma observação específica",
     data_de_inicio: "2023-01-01",
     data_fim: "2024-01-01",
@@ -410,7 +408,7 @@ $criarSetorDTO = new AtualizarSetorDTO( // Tá quebrando ao nulificar codigo-rh 
 
 // ];
 // $outraDTO = new CriarSetorDTO(...$setorArr);
-// $criarSetorRequest = new CriarSetorRequest(2, $criarSetorDTO);
+// $criarSetorRequest = new CriarSetorRequest(1, $criarSetorDTO);
 // $response = $authConnector->send($criarSetorRequest);
 
 // $response = $authConnector->send(new ListarSetorRequest(2));
@@ -429,21 +427,21 @@ $criarAmbienteDTO = new CriarAmbienteDTO(
     identificacao_esocial: "SALADEV123",
     area: "30m2",
     pe_direito: "2.5m",
-    // piso: "Porcelanato",
-    // teto: "Gesso",
-    // iluminacao: "LED",
-    // paredes: "Pintura Látex",
-    // ventilacao: "Ar-condicionado",
+    piso: "Porcelanato",
+    teto: "Gesso",
+    iluminacao: "LED",
+    paredes: "Pintura Látex",
+    ventilacao: "Ar-condicionado",
     forro: "Gesso",
-    // descricao_complementar: "Sala destinada ao time de desenvolvimento de software.",
-    // data_de_inicio: "2023/01/01",
-    // data_fim: "2023/12/31"
+    descricao_complementar: "Sala destinada ao time de desenvolvimento de software.",
+    data_de_inicio: "2023/01/01",
+    data_fim: "2023/12/31"
 );
 
-// $criarAmbienteRequest = new CriarAmbienteRequest(3, $criarAmbienteDTO);
-// $response = $authConnector->send($criarAmbienteRequest);
+$criarAmbienteRequest = new CriarAmbienteRequest(1, $criarAmbienteDTO);
+$response = $authConnector->send($criarAmbienteRequest);
 
-// $response = $authConnector->send(new ListarAmbienteRequest(3));
+// $response = $authConnector->send(new ListarAmbienteRequest(1));
 // $response = $authConnector->send(new MostrarAmbienteRequest(3, 3));
 
 $atualizarAmbienteDTO = new AtualizarAmbienteDTO(
@@ -479,14 +477,14 @@ $requestData = [
 ];
 
 // // Cria uma instância do Request com os dados da simulação
-$request = new Request($requestData);
+// $request = new Request($requestData);
 
-// // Utiliza o método fromRequest para criar uma instância de CriarFuncaoDTO
+// // // Utiliza o método fromRequest para criar uma instância de CriarFuncaoDTO
 // $criarFuncaoDTO = CriarFuncaoDTO::fromRequest($request);
-// $criarFuncaoReq = new CriarFuncaoRequest(2, $criarFuncaoDTO);
+// $criarFuncaoReq = new CriarFuncaoRequest(1, $criarFuncaoDTO);
 // $response = $authConnector->send($criarFuncaoReq);
 
-// $response = $authConnector->send(new ListarFuncaoRequest(2));
+// $response = $authConnector->send(new ListarFuncaoRequest(1));
 
 // $request = new Request($requestData);
 
@@ -528,10 +526,10 @@ $criarFuncionarioDTO = new CriarFuncionarioDTO(
     tipo_de_registro: 'Tipo X',
     valido_a_partir: '2023-01-01',
     matricula: 'MTR2346',
-    local_id: 3, // Supondo que o local tenha ID 1
+    local_id: 1, // Supondo que o local tenha ID 1
     setor_id: 1, // Supondo que o setor tenha ID 2
-    ambiente_id: 4, // Supondo que o ambiente tenha ID 3
-    funcao_id: 2, // Supondo que a função tenha ID 4
+    ambiente_id: 1, // Supondo que o ambiente tenha ID 3
+    funcao_id: 1, // Supondo que a função tenha ID 4
     cargo: 'Desenvolvedor',
     identificacao_esocial: 'ID eSocial',
     cnpj: '00.000.000/0001-00',
@@ -601,7 +599,7 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $response = $authConnector->send($atualizarFuncionarioReq);
 
 // $response = $authConnector->send(new DeletarFuncionarioRequest(1));
-$response = $authConnector->send(new MostrarFuncionarioRequest(5));
+// $response = $authConnector->send(new MostrarFuncionarioRequest(5));
 
 
 
