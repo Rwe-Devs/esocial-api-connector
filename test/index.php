@@ -13,6 +13,7 @@ use RweDevs\EsocialApiConnector\DTO\CriarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarEmpregadorDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarFuncionarioDTO;
+use RweDevs\EsocialApiConnector\DTO\CriarGradeFuncionalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
@@ -27,6 +28,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\CriarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarFuncionarioRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\CriarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\CriarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarAmbienteRequest;
@@ -39,6 +41,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\ListarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarFuncionarioRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\ListarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\ListarSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\LoginRequest;
@@ -438,8 +441,8 @@ $criarAmbienteDTO = new CriarAmbienteDTO(
     data_fim: "2023/12/31"
 );
 
-$criarAmbienteRequest = new CriarAmbienteRequest(1, $criarAmbienteDTO);
-$response = $authConnector->send($criarAmbienteRequest);
+// $criarAmbienteRequest = new CriarAmbienteRequest(1, $criarAmbienteDTO);
+// $response = $authConnector->send($criarAmbienteRequest);
 
 // $response = $authConnector->send(new ListarAmbienteRequest(1));
 // $response = $authConnector->send(new MostrarAmbienteRequest(3, 3));
@@ -602,7 +605,11 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $response = $authConnector->send(new MostrarFuncionarioRequest(5));
 
 
+// GRADE FUNCIONAL
+// $response = $authConnector->send(new ListarGradeFuncionalRequest(1));
 
+$criarGradeDto = new CriarGradeFuncionalDTO('grade 1', 5, 1);
+$response = $authConnector->send(new CriarGradeFuncionalRequest(1, $criarGradeDto));
 
 echo ($response);
 dd(json_decode($response));
