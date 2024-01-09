@@ -106,6 +106,7 @@ class CriarLocalDTO
         public float $vrSubteto,
         public string $indAcordoIsenMulta,
         public ?string $indSitPJ,
+        public ?string $indSitPF,
         public ?string $obs,
         public ?string $obsPPP,
         public ?string $obsASO
@@ -162,6 +163,7 @@ class CriarLocalDTO
             vrSubteto: $request->input('vrSubteto'),
             indAcordoIsenMulta: $request->input('indAcordoIsenMulta'),
             indSitPJ: $request->input('indSitPJ'),
+            indSitPF: $request->input('indSitPF'),
             obs: $request->input('obs'),
             obsPPP: $request->input('obsPPP'),
             obsASO: $request->input('obsASO'),

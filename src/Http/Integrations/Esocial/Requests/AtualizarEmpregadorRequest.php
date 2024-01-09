@@ -77,6 +77,7 @@ class AtualizarEmpregadorRequest extends Request implements HasBody
             'vrSubteto' => $this->atualizarEmpregadorDTO->vrSubteto,
             'indAcordoIsenMulta' => $this->atualizarEmpregadorDTO->indAcordoIsenMulta,
             'indSitPJ' => $this->atualizarEmpregadorDTO->indSitPJ,
+            'indSitPF' => $this->atualizarEmpregadorDTO->indSitPF,
             'obs' => $this->atualizarEmpregadorDTO->obs,
             'obsPPP' => $this->atualizarEmpregadorDTO->obsPPP,
             'obsASO' => $this->atualizarEmpregadorDTO->obsASO,

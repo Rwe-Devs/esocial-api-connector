@@ -81,6 +81,7 @@ class AtualizarLocalRequest extends Request implements HasBody
             'vrSubteto' => $this->atualizarLocalDTO->vrSubteto,
             'indAcordoIsenMulta' => $this->atualizarLocalDTO->indAcordoIsenMulta,
             'indSitPJ' => $this->atualizarLocalDTO->indSitPJ,
+            'indSitPF' => $this->atualizarLocalDTO->indSitPF,
             'obs' => $this->atualizarLocalDTO->obs,
             'obsPPP' => $this->atualizarLocalDTO->obsPPP,
             'obsASO' => $this->atualizarLocalDTO->obsASO,
