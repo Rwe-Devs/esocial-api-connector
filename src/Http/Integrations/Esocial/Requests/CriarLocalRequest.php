@@ -79,6 +79,7 @@ class CriarLocalRequest extends Request implements HasBody
             'vrSubteto' => $this->criarLocalDTO->vrSubteto,
             'indAcordoIsenMulta' => $this->criarLocalDTO->indAcordoIsenMulta,
             'indSitPJ' => $this->criarLocalDTO->indSitPJ,
+            'indSitPF' => $this->criarLocalDTO->indSitPF,
             'obs' => $this->criarLocalDTO->obs,
             'obsPPP' => $this->criarLocalDTO->obsPPP,
             'obsASO' => $this->criarLocalDTO->obsASO,

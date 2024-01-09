@@ -76,6 +76,7 @@ class CriarEmpregadorRequest extends Request implements HasBody
             'vrSubteto' => $this->criarEmpregadorDTO->vrSubteto,
             'indAcordoIsenMulta' => $this->criarEmpregadorDTO->indAcordoIsenMulta,
             'indSitPJ' => $this->criarEmpregadorDTO->indSitPJ,
+            'indSitPF' => $this->criarEmpregadorDTO->indSitPF,
             'obs' => $this->criarEmpregadorDTO->obs,
             'obsPPP' => $this->criarEmpregadorDTO->obsPPP,
             'obsASO' => $this->criarEmpregadorDTO->obsASO,

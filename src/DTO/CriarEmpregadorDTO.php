@@ -55,6 +55,7 @@ class CriarEmpregadorDTO
      * @param float $vrSubteto Valor do subteto do Ente Federativo.
      * @param string $indAcordoIsenMulta Acordo internacional para isenção de multa.
      * @param string|null $indSitPJ Indicador de situação do empregador junto à RFB (nullable).
+     * @param string|null $indSitPF Indicativo da Situação da Pessoa Física (nullable).
      * @param string|null $obs Descrição do Local/Empregador (nullable).
      * @param string|null $obsPPP Informação do PPP (nullable).
      * @param string|null $obsASO Informação do ASO (nullable).
@@ -105,6 +106,7 @@ class CriarEmpregadorDTO
         public readonly float $vrSubteto,
         public readonly string $indAcordoIsenMulta,
         public readonly ?string $indSitPJ,
+        public readonly ?string $indSitPF,
         public readonly ?string $obs,
         public readonly ?string $obsPPP,
         public readonly ?string $obsASO
@@ -160,6 +162,7 @@ class CriarEmpregadorDTO
             vrSubteto: $request->input('vrSubteto'),
             indAcordoIsenMulta: $request->input('indAcordoIsenMulta'),
             indSitPJ: $request->input('indSitPJ'),
+            indSitPF: $request->input('indSitPF'),
             obs: $request->input('obs'),
             obsPPP: $request->input('obsPPP'),
             obsASO: $request->input('obsASO')

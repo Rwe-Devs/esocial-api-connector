@@ -56,6 +56,7 @@ class AtualizarEmpregadorDTO
      * @param float|null $vrSubteto Valor do subteto do Ente Federativo.
      * @param string|null $indAcordoIsenMulta Acordo internacional para isenção de multa.
      * @param string|null $indSitPJ Indicador de situação do empregador junto à RFB (nullable).
+     * @param string|null $indSitPF Indicativo da Situação da Pessoa Física (nullable).
      * @param string|null $obs Descrição do Local/Empregador (nullable).
      * @param string|null $obsPPP Informação do PPP (nullable).
      * @param string|null $obsASO Informação do ASO (nullable).
@@ -106,6 +107,7 @@ class AtualizarEmpregadorDTO
         public readonly ?float $vrSubteto = null,
         public readonly ?string $indAcordoIsenMulta = null,
         public readonly ?string $indSitPJ = null,
+        public readonly ?string $indSitPF = null,
         public readonly ?string $obs = null,
         public readonly ?string $obsPPP = null,
         public readonly ?string $obsASO = null,
@@ -161,6 +163,7 @@ class AtualizarEmpregadorDTO
             vrSubteto: $request->input('vrSubteto'),
             indAcordoIsenMulta: $request->input('indAcordoIsenMulta'),
             indSitPJ: $request->input('indSitPJ'),
+            indSitPF: $request->input('indSitPF'),
             obs: $request->input('obs'),
             obsPPP: $request->input('obsPPP'),
             obsASO: $request->input('obsASO')
