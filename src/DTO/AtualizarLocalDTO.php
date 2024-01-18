@@ -55,6 +55,7 @@ class AtualizarLocalDTO
      * @param float|null  $vrSubteto Valor do subteto do Ente Federativo.
      * @param string|null $indAcordoIsenMulta Acordo internacional para isenção de multa.
      * @param string|null  $indSitPJ Indicador de situação do empregador junto à RFB (nullable).
+     * @param string|null  $indSitPF Indicativo da Situação da Pessoa Física (nullable).
      * @param string|null  $obs Descrição do Local/Empregador (nullable).
      * @param string|null  $obsPPP Informação do PPP (nullable).
      * @param string|null  $obsASO Informação do ASO (nullable).
