@@ -67,6 +67,8 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\RetrieveTokenRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\Tabela24Request;
 use RweDevs\EsocialApiConnector\Esocial\Requests\Tabela27Request;
 use RweDevs\EsocialApiConnector\Esocial\Requests\Tabela8Request;
+use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaCboRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaCidRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaCnaeRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaConstrutorasRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaCooperativasRequest;
@@ -77,8 +79,8 @@ use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 
 
-$apiUrl = 'http://localhost:8000/api/';
-$token = '1|7Mk7SUPgYLZkUvcPa31wo1ZPss52piwcwCxDUelJf6f61c80';
+$apiUrl = 'http://localhost:8001/api/';
+$token = '2|PtKKA27gXvTLmdElAQBMIEzwqCJ0wURQssJOS43Y22b948cd';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
@@ -94,7 +96,7 @@ $authConnector = new EsocialConnector($apiUrl, $token);
 
 // REQUESTS DE AUTENTICAÇÃO
 
-// $registroDTO = new RegistroDTO('teste de user', 'teste27@teste.com', '12345678', '12345678', 1, 15580779788);
+// $registroDTO = new RegistroDTO('teste de user', 'teste27@teste.com', '12345678', '12345678');
 // $registroDTOfromRequest = RegistroDTO::fromRequest($request);
 // $registro = new RegistroRequest($registroDTO);
 // $response = $connector->send($registro);
@@ -160,6 +162,7 @@ $criarEmpregadorDTO = new CriarEmpregadorDTO(
     vrSubteto: 99999.99,
     indAcordoIsenMulta: 'N',
     indSitPJ: null, // ou o indicador de situação do empregador junto à RFB, se aplicável
+    indSitPF: null, // ou o indicador de situação do empregador junto à RFB, se aplicável
     obs: 'Observações sobre o empregador',
     obsPPP: null, // ou informações do PPP, se aplicável
     obsASO: null // ou informações do ASO, se aplicável
@@ -336,6 +339,7 @@ $criarLocalDTO = new CriarLocalDTO(
     vrSubteto: 99999.99,
     indAcordoIsenMulta: "N",
     indSitPJ: null, // ou o indicador de situação do empregador junto à RFB, se aplicável
+    indSitPF: null, // ou o indicador de situação do empregador junto à RFB, se aplicável
     obs: "Observações sobre o local",
     obsPPP: null, // ou informações do PPP, se aplicável
     obsASO: null // ou informações do ASO, se aplicável
@@ -637,7 +641,7 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
 
 
-// $response = $authConnector->send(new Tabela27Request);
+$response = $authConnector->send(new TabelaCboRequest);
 
 $criarResponsavelTecnicoDTO = new CriarResponsavelTecnicoDTO(
     codigo: 'RES001',
