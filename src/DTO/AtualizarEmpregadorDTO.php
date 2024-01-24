@@ -12,7 +12,7 @@ class AtualizarEmpregadorDTO
      * Monta o 'body' da Request de Atualizar Empregador.
      *
      * @param int|null $tpInsc Tipo de Inscrição. 0 ou 1.
-     * @param int|null $nrInsc Número de Inscrição único.
+     * @param string|null $nrInsc Número de Inscrição único.
      * @param string|null $nmRazao Nome ou Razão Social do empregador.
      * @param string|null $iniValid Mês e ano de início da validade (formato AAAA-MM).
      * @param string|null $fimValid Mês e ano de término da validade (formato AAAA-MM, nullable).
@@ -63,7 +63,7 @@ class AtualizarEmpregadorDTO
      */
     public function __construct(
         public readonly ?int $tpInsc = null,
-        public readonly ?int $nrInsc = null,
+        public readonly ?string $nrInsc = null,
         public readonly ?string $nmRazao = null,
         public readonly ?string $iniValid = null,
         public readonly ?string $fimValid = null,
