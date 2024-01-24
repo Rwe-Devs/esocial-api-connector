@@ -11,7 +11,7 @@ class CriarEmpregadorDTO
      * Monta o 'body' da Request de Criar Empregador.
      *
      * @param int $tpInsc Tipo de Inscrição. 0 ou 1.
-     * @param int $nrInsc Número de Inscrição único.
+     * @param string $nrInsc Número de Inscrição único.
      * @param string $nmRazao Nome ou Razão Social do empregador.
      * @param string $iniValid Mês e ano de início da validade (formato AAAA-MM).
      * @param string|null $fimValid Mês e ano de término da validade (formato AAAA-MM, nullable).
@@ -62,7 +62,7 @@ class CriarEmpregadorDTO
      */
     public function __construct(
         public readonly int $tpInsc,
-        public readonly int $nrInsc,
+        public readonly string $nrInsc,
         public readonly string $nmRazao,
         public readonly string $iniValid,
         public readonly ?string $fimValid,

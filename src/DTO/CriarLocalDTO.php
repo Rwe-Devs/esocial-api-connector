@@ -14,7 +14,7 @@ class CriarLocalDTO
      * @param string|null $fimValid Mês e ano de término da validade (formato AAAA-MM, nullable).
      * @param string $nmRazao Razão social do local.
      * @param int $tpInsc Tipo de Inscrição.
-     * @param int $nrInsc Número de inscrição único.
+     * @param string $nrInsc Número de inscrição único.
      * @param string $classTrib Classificação tributária do contribuinte.
      * @param string $indCoop Indicativo de Cooperativa.
      * @param string $indConstr Indicativo de Construtora.
@@ -66,7 +66,7 @@ class CriarLocalDTO
         public ?string $fimValid,
         public string $nmRazao,
         public int $tpInsc,
-        public int $nrInsc,
+        public string $nrInsc,
         public string $classTrib,
         public string $indCoop,
         public string $indConstr,

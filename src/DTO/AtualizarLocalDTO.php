@@ -11,10 +11,10 @@ class AtualizarLocalDTO
      *
      * @param string|null $codigo Código do local.
      * @param string|null $iniValid Mês e ano de início da validade (formato AAAA-MM).
-     * @param string|null  $fimValid Mês e ano de término da validade (formato AAAA-MM, nullable).
+     * @param string|null $fimValid Mês e ano de término da validade (formato AAAA-MM, nullable).
      * @param string|null $nmRazao Razão social do local.
-     * @param int|null  $tpInsc Tipo de Inscrição.
-     * @param int|null  $nrInsc Número de inscrição único.
+     * @param int|null $tpInsc Tipo de Inscrição.
+     * @param string|null $nrInsc Número de inscrição único.
      * @param string|null $classTrib Classificação tributária do contribuinte.
      * @param string|null $indCoop Indicativo de Cooperativa.
      * @param string|null $indConstr Indicativo de Construtora.
@@ -22,43 +22,43 @@ class AtualizarLocalDTO
      * @param string|null $indopccp Indicativo da opção pelo produtor rural pela forma de tributação da contribuição previdenciária.
      * @param string|null $indporte Indicativo de porte da empresa para desoneração da folha.
      * @param string|null $indOptRegEletron Opção pelo registro eletrônico de empregados.
-     * @param string|null  $cnpjEFR CNPJ do EFR (nullable).
-     * @param string|null  $dttrans11096 Data de transição para Lei 11096 (nullable).
-     * @param string|null  $indtribfolhapiscofins Indicativo de tributação para PIS/COFINS (nullable).
-     * @param string|null  $natJurid Código da Natureza Jurídica (nullable).
+     * @param string|null $cnpjEFR CNPJ do EFR (nullable).
+     * @param string|null $dttrans11096 Data de transição para Lei 11096 (nullable).
+     * @param string|null $indtribfolhapiscofins Indicativo de tributação para PIS/COFINS (nullable).
+     * @param string|null $natJurid Código da Natureza Jurídica (nullable).
      * @param string|null $multTabRubricas Uso de mais de uma tabela de rubricas.
-     * @param string|null  $indEntEd Indicativo de entidade educativa sem fins lucrativos (nullable).
+     * @param string|null $indEntEd Indicativo de entidade educativa sem fins lucrativos (nullable).
      * @param string|null $indEtt Indicativo de Empresa de Trabalho Temporário.
-     * @param string|null  $nrRegEtt Número do registro da Empresa de Trabalho Temporário (nullable).
+     * @param string|null $nrRegEtt Número do registro da Empresa de Trabalho Temporário (nullable).
      * @param string|null $ideMinLei Sigla e nome do Ministério ou Lei.
      * @param string|null $nrCertif Número do Certificado ou Lei.
      * @param string|null $dtEmisCertif Data de Emissão do Certificado ou Lei.
      * @param string|null $dtVencCertif Data de Vencimento do Certificado.
-     * @param string|null  $nrProtRenov Protocolo de pedido de renovação (nullable).
-     * @param string|null  $dtProtRenov Data do protocolo de renovação (nullable).
-     * @param string|null  $dtDou Data de publicação no DOU (nullable).
-     * @param int|null  $pagDou Número da página no DOU (nullable).
+     * @param string|null $nrProtRenov Protocolo de pedido de renovação (nullable).
+     * @param string|null $dtProtRenov Data do protocolo de renovação (nullable).
+     * @param string|null $dtDou Data de publicação no DOU (nullable).
+     * @param int|null $pagDou Número da página no DOU (nullable).
      * @param string|null $nmCtt Nome do contato na empresa.
      * @param string|null $cpfCtt CPF do contato.
-     * @param string|null  $foneFixo Telefone fixo com DDD (nullable).
-     * @param string|null  $foneCel Telefone celular com DDD (nullable).
-     * @param string|null  $email Endereço eletrônico (nullable).
+     * @param string|null $foneFixo Telefone fixo com DDD (nullable).
+     * @param string|null $foneCel Telefone celular com DDD (nullable).
+     * @param string|null $email Endereço eletrônico (nullable).
      * @param string|null $nrSiafi Número SIAFI.
      * @param string|null $ideEFR Identificador de EFR.
-     * @param string|null  $website Web site (nullable).
-     * @param string|null  $logo Logo (nullable).
+     * @param string|null $website Web site (nullable).
+     * @param string|null $logo Logo (nullable).
      * @param string|null $nmEnte Nome do Ente Federativo vinculado.
      * @param string|null $uf Sigla da Unidade da Federação.
-     * @param string|null  $codMunic Código do município IBGE (nullable).
+     * @param string|null $codMunic Código do município IBGE (nullable).
      * @param string|null $indRPPS Indicativo de Regime Próprio de Previdência Social.
      * @param string|null $subteto Poder referente ao subteto.
-     * @param float|null  $vrSubteto Valor do subteto do Ente Federativo.
+     * @param float|null $vrSubteto Valor do subteto do Ente Federativo.
      * @param string|null $indAcordoIsenMulta Acordo internacional para isenção de multa.
-     * @param string|null  $indSitPJ Indicador de situação do empregador junto à RFB (nullable).
-     * @param string|null  $indSitPF Indicativo da Situação da Pessoa Física (nullable).
-     * @param string|null  $obs Descrição do Local/Empregador (nullable).
-     * @param string|null  $obsPPP Informação do PPP (nullable).
-     * @param string|null  $obsASO Informação do ASO (nullable).
+     * @param string|null $indSitPJ Indicador de situação do empregador junto à RFB (nullable).
+     * @param string|null $indSitPF Indicativo da Situação da Pessoa Física (nullable).
+     * @param string|null $obs Descrição do Local/Empregador (nullable).
+     * @param string|null $obsPPP Informação do PPP (nullable).
+     * @param string|null $obsASO Informação do ASO (nullable).
      */
     public function __construct(
         public ?string $codigo = null,
@@ -66,7 +66,7 @@ class AtualizarLocalDTO
         public ?string $fimValid = null,
         public ?string $nmRazao = null,
         public ?int $tpInsc = null,
-        public ?int $nrInsc = null,
+        public ?string $nrInsc = null,
         public ?string $classTrib = null,
         public ?string $indCoop = null,
         public ?string $indConstr = null,
