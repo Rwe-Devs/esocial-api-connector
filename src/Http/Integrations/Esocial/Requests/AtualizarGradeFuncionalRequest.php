@@ -36,8 +36,8 @@ class AtualizarGradeFuncionalRequest extends Request implements HasBody
     {
         return [
             'nome' => $this->atualizarGradeFuncionalDTO->nome,
-            'ambiente_id' => $this->atualizarGradeFuncionalDTO->ambiente_id,
-            'funcao_id' => $this->atualizarGradeFuncionalDTO->funcao_id,
+            'setor_id' => $this->atualizarGradeFuncionalDTO->setor_id,
+            'funcoes' => $this->atualizarGradeFuncionalDTO->funcoes,
         ];
     }
 
