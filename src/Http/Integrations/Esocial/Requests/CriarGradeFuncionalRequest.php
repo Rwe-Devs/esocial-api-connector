@@ -34,8 +34,8 @@ class CriarGradeFuncionalRequest extends Request implements HasBody
     {
         return [
             'nome' => $this->criarGradeFuncionalDTO->nome,
-            'ambiente_id' => $this->criarGradeFuncionalDTO->ambiente_id,
-            'funcao_id' => $this->criarGradeFuncionalDTO->funcao_id,
+            'setor_id' => $this->criarGradeFuncionalDTO->setor_id,
+            'funcoes' => $this->criarGradeFuncionalDTO->funcoes,
         ];
     }
 

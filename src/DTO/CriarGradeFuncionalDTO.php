@@ -10,13 +10,13 @@ class CriarGradeFuncionalDTO
      * DTO para criar uma nova Grade Funcional.
      *
      * @param string $nome Nome da Grade Funcional.
-     * @param string $ambiente_id Id do Ambiente.
-     * @param string|null $funcao_id Id da Função (opcional).
+     * @param string $setor_id Id do Setor.
+     * @param string|null $funcoes Array de id das Funções (opcional).
      */
     public function __construct(
         public string $nome,
-        public string $ambiente_id,
-        public ?string $funcao_id = null,
+        public string $setor_id,
+        public ?string $funcoes = null,
     ) {
     }
 
@@ -30,8 +30,8 @@ class CriarGradeFuncionalDTO
     {
         return new self(
             nome: $request->input('nome'),
-            ambiente_id: $request->input('ambiente_id'),
-            funcao_id: $request->input('funcao_id'),
+            setor_id: $request->input('setor_id'),
+            funcoes: $request->input('funcoes'),
         );
     }
 }
