@@ -80,7 +80,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 
 
 $apiUrl = 'http://localhost:8001/api/';
-$token = '2|PtKKA27gXvTLmdElAQBMIEzwqCJ0wURQssJOS43Y22b948cd';
+$token = '2|Bh7lbNtlvH4MKPEACaYSW6mUjjGMYkA1hmH6lwdXa5885f98';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
@@ -214,15 +214,16 @@ $empregadorDataArray = [
     'vrSubteto' => 99999.99,
     'indAcordoIsenMulta' => 'N',
     'indSitPJ' => null,
+    'indSitPF' => null,
     'obs' => 'Observações sobre o empregador',
     'obsPPP' => null,
     'obsASO' => null
 ];
-// $criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
+$criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
 
 // Criando a requisição com a DTO
-// $criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
-// $response = $authConnector->send($criarEmpregadorRequest);
+$criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
+$response = $authConnector->send($criarEmpregadorRequest);
 
 // $response = $authConnector->send(new MostrarEmpregadorRequest(1));
 
@@ -641,7 +642,7 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
 
 
-$response = $authConnector->send(new TabelaCboRequest);
+// $response = $authConnector->send(new TabelaCboRequest);
 
 $criarResponsavelTecnicoDTO = new CriarResponsavelTecnicoDTO(
     codigo: 'RES001',

@@ -11,12 +11,12 @@ class AtualizarGradeFuncionalDTO
      *
      * @param string|null $nome Nome da Grade Funcional.
      * @param string|null $setor_id Id do Setor.
-     * @param string|null $funcoes Array de id das Funções (opcional).
+     * @param array|null $funcoes Array de id das Funções (opcional).
      */
     public function __construct(
         public ?string $nome,
         public ?string $setor_id,
-        public ?string $funcoes = null,
+        public ?array $funcoes = null,
     ) {
     }
 
