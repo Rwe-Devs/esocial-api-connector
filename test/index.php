@@ -80,7 +80,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 
 
 $apiUrl = 'http://localhost:8001/api/';
-$token = '2|Bh7lbNtlvH4MKPEACaYSW6mUjjGMYkA1hmH6lwdXa5885f98';
+$token = '1|Ie1UKQJiQUkGGF2FNgafwhfNt5smmwkJopnG3bxI4bc6e86c';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
@@ -219,11 +219,11 @@ $empregadorDataArray = [
     'obsPPP' => null,
     'obsASO' => null
 ];
-$criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
+// $criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
 
 // Criando a requisição com a DTO
-$criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
-$response = $authConnector->send($criarEmpregadorRequest);
+// $criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
+// $response = $authConnector->send($criarEmpregadorRequest);
 
 // $response = $authConnector->send(new MostrarEmpregadorRequest(1));
 
@@ -632,13 +632,13 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // GRADE FUNCIONAL
 // $response = $authConnector->send(new ListarGradeFuncionalRequest(1));
 
-// $criarGradeDto = new CriarGradeFuncionalDTO('grade 1', 5, 1);
+// $criarGradeDto = new CriarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3]);
 // $response = $authConnector->send(new CriarGradeFuncionalRequest(1, $criarGradeDto));
 
-// $atualizarGradeDto = new AtualizarGradeFuncionalDTO('grade atualizada', 5, 1);
-// $response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 6, $atualizarGradeDto));
+$atualizarGradeDto = new AtualizarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3, 1]);
+$response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 9, $atualizarGradeDto));
 
-// $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 6));
+// $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 9));
 // $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
 
 
