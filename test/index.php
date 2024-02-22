@@ -20,6 +20,7 @@ use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarResponsavelTecnicoDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
+use RweDevs\EsocialApiConnector\DTO\MostrarFuncoesDoSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
@@ -59,6 +60,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncionarioRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncoesDoSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarResponsavelTecnicoRequest;
@@ -78,9 +80,12 @@ use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 
+// Para rodar: php -S localhost:PORT
+// Entrar em localhost:PORT/test/index.php no browser
 
 $apiUrl = 'http://localhost:8001/api/';
-$token = '1|Ie1UKQJiQUkGGF2FNgafwhfNt5smmwkJopnG3bxI4bc6e86c';
+$token = '3|j4I6Wa2k9Wsk5H7yXSJ982FTi8cU2RkBJG9K6ibV1ae7ffff
+';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
@@ -635,8 +640,8 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $criarGradeDto = new CriarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3]);
 // $response = $authConnector->send(new CriarGradeFuncionalRequest(1, $criarGradeDto));
 
-$atualizarGradeDto = new AtualizarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3, 1]);
-$response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 9, $atualizarGradeDto));
+// $atualizarGradeDto = new AtualizarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3, 1]);
+// $response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 9, $atualizarGradeDto));
 
 // $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 9));
 // $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
@@ -695,6 +700,11 @@ $atualizarResponsavelTecnicoDTO = new AtualizarResponsavelTecnicoDTO(
 // $response = $authConnector->send(new ListarResponsavelTecnicoRequest(1));
 // $response = $authConnector->send(new MostrarResponsavelTecnicoRequest(1, 6));
 // $response = $authConnector->send(new DeletarResponsavelTecnicoRequest(1, 6));
+
+$mostrarFuncoesDTO = new MostrarFuncoesDoSetorDTO(2, [2, 3]);
+$mostrarFuncoesRequest = new MostrarFuncoesDoSetorRequest(2, $mostrarFuncoesDTO);
+
+$response = $authConnector->send($mostrarFuncoesRequest);
 
 echo ($response);
 dd(json_decode($response));
