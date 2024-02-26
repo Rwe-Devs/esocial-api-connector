@@ -5,6 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use Illuminate\Http\Request;
 use RweDevs\EsocialApiConnector\DTO\AtualizarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorLogoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncionarioDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarGradeFuncionalDTO;
@@ -76,11 +77,12 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaDesoneracaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaIndOptRegEletronRequest;
 use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorLogoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
-
+use Saloon\Data\MultipartValue;
 
 $apiUrl = 'http://localhost:8001/api/';
-$token = '1|Ie1UKQJiQUkGGF2FNgafwhfNt5smmwkJopnG3bxI4bc6e86c';
+$token = '7|602Rfud0DwoM4Cesd2Ue9Kn4XC5mCglTHKhGfmEyba78071b';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
@@ -219,7 +221,7 @@ $empregadorDataArray = [
     'obsPPP' => null,
     'obsASO' => null
 ];
-// $criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
+$criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
 
 // Criando a requisição com a DTO
 // $criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
@@ -289,6 +291,31 @@ $empregadorDataArray = [
 // Deletar Empregador
 // $response = $authConnector->send(new DeletarEmpregadorRequest(1));
 
+
+//  $conteudo_arquivo = $_FILES['logo'];
+// $metodo =  $_POST['_method'];
+
+// $url = 'https://logosmarcas.net/wp-content/uploads/2020/04/Nike-Logo.png';
+// $conteudo_imagem = file_get_contents($url);
+
+// $arquivo = $_FILES['logo']['tmp_name'];
+// $filename = $_FILES['logo']['name'];
+
+// $fileContent = file_get_contents($arquivo);
+
+
+// $multipartValue = new MultipartValue(
+//     name: 'logo',
+//     value: $fileContent, 
+//     filename: $filename
+// );
+// $atualizarEmpregadorLogoDTO = new AtualizarEmpregadorLogoDTO(
+   
+//     logo: $multipartValue,
+   
+// );
+// $atualizarEmpregadorLogoRequest = new AtualizarEmpregadorLogoRequest(7, $atualizarEmpregadorLogoDTO);
+// $response = $authConnector->send($atualizarEmpregadorLogoRequest);
 // VER LOCAIS
 
 // $response = $authConnector->send(new ListarLocalRequest(1));
@@ -636,7 +663,7 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $response = $authConnector->send(new CriarGradeFuncionalRequest(1, $criarGradeDto));
 
 $atualizarGradeDto = new AtualizarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3, 1]);
-$response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 9, $atualizarGradeDto));
+// $response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 9, $atualizarGradeDto));
 
 // $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 9));
 // $response = $authConnector->send(new DeletarGradeFuncionalRequest(1, 5));
