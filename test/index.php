@@ -78,6 +78,7 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaIndOptRegEletronRequest;
 use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorLogoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorLogoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 use Saloon\Data\MultipartValue;
 
@@ -228,7 +229,9 @@ $criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
 // $response = $authConnector->send($criarEmpregadorRequest);
 
 // $response = $authConnector->send(new MostrarEmpregadorRequest(1));
-
+// $response = $authConnector->send(new MostrarEmpregadorLogoRequest(7));
+// header('Content-Type: image/png');
+// echo $response;
 
 // Substitua os valores a seguir pelos dados reais do empregador
 // $atualizarEmpregadorDTO = new AtualizarEmpregadorDTO(
@@ -723,5 +726,5 @@ $atualizarResponsavelTecnicoDTO = new AtualizarResponsavelTecnicoDTO(
 // $response = $authConnector->send(new MostrarResponsavelTecnicoRequest(1, 6));
 // $response = $authConnector->send(new DeletarResponsavelTecnicoRequest(1, 6));
 
-echo ($response);
-dd(json_decode($response));
+// echo ($response);
+// dd(json_decode($response));
