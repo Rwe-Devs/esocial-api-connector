@@ -5,6 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use Illuminate\Http\Request;
 use RweDevs\EsocialApiConnector\DTO\AtualizarAmbienteDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorDTO;
+use RweDevs\EsocialApiConnector\DTO\AtualizarEmpregadorLogoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncaoDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarFuncionarioDTO;
 use RweDevs\EsocialApiConnector\DTO\AtualizarGradeFuncionalDTO;
@@ -20,7 +21,6 @@ use RweDevs\EsocialApiConnector\DTO\CriarLocalDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarResponsavelTecnicoDTO;
 use RweDevs\EsocialApiConnector\DTO\CriarSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\LoginDTO;
-use RweDevs\EsocialApiConnector\DTO\MostrarFuncoesDoSetorDTO;
 use RweDevs\EsocialApiConnector\DTO\RegistroDTO;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorRequest;
@@ -60,7 +60,6 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarAmbienteRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncionarioRequest;
-use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarFuncoesDoSetorRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarGradeFuncionalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarLocalRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarResponsavelTecnicoRequest;
@@ -78,14 +77,13 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaDesoneracaoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaIndOptRegEletronRequest;
 use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
+use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorLogoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorLogoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
-
-// Para rodar: php -S localhost:PORT
-// Entrar em localhost:PORT/test/index.php no browser
+use Saloon\Data\MultipartValue;
 
 $apiUrl = 'http://localhost:8001/api/';
-$token = '3|j4I6Wa2k9Wsk5H7yXSJ982FTi8cU2RkBJG9K6ibV1ae7ffff
-';
+$token = '7|602Rfud0DwoM4Cesd2Ue9Kn4XC5mCglTHKhGfmEyba78071b';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
@@ -224,14 +222,16 @@ $empregadorDataArray = [
     'obsPPP' => null,
     'obsASO' => null
 ];
-// $criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
+$criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
 
 // Criando a requisição com a DTO
 // $criarEmpregadorRequest = new CriarEmpregadorRequest($criarEmpregadorDTO);
 // $response = $authConnector->send($criarEmpregadorRequest);
 
 // $response = $authConnector->send(new MostrarEmpregadorRequest(1));
-
+// $response = $authConnector->send(new MostrarEmpregadorLogoRequest(7));
+// header('Content-Type: image/png');
+// echo $response;
 
 // Substitua os valores a seguir pelos dados reais do empregador
 // $atualizarEmpregadorDTO = new AtualizarEmpregadorDTO(
@@ -294,6 +294,31 @@ $empregadorDataArray = [
 // Deletar Empregador
 // $response = $authConnector->send(new DeletarEmpregadorRequest(1));
 
+
+//  $conteudo_arquivo = $_FILES['logo'];
+// $metodo =  $_POST['_method'];
+
+// $url = 'https://logosmarcas.net/wp-content/uploads/2020/04/Nike-Logo.png';
+// $conteudo_imagem = file_get_contents($url);
+
+// $arquivo = $_FILES['logo']['tmp_name'];
+// $filename = $_FILES['logo']['name'];
+
+// $fileContent = file_get_contents($arquivo);
+
+
+// $multipartValue = new MultipartValue(
+//     name: 'logo',
+//     value: $fileContent, 
+//     filename: $filename
+// );
+// $atualizarEmpregadorLogoDTO = new AtualizarEmpregadorLogoDTO(
+   
+//     logo: $multipartValue,
+   
+// );
+// $atualizarEmpregadorLogoRequest = new AtualizarEmpregadorLogoRequest(7, $atualizarEmpregadorLogoDTO);
+// $response = $authConnector->send($atualizarEmpregadorLogoRequest);
 // VER LOCAIS
 
 // $response = $authConnector->send(new ListarLocalRequest(1));
@@ -640,7 +665,7 @@ $atualizarFuncionarioDTO = new AtualizarFuncionarioDTO(
 // $criarGradeDto = new CriarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3]);
 // $response = $authConnector->send(new CriarGradeFuncionalRequest(1, $criarGradeDto));
 
-// $atualizarGradeDto = new AtualizarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3, 1]);
+$atualizarGradeDto = new AtualizarGradeFuncionalDTO("NOVOOOO pelo pkg", 3, [2, 3, 1]);
 // $response = $authConnector->send(new AtualizarGradeFuncionalRequest(1, 9, $atualizarGradeDto));
 
 // $response = $authConnector->send(new MostrarGradeFuncionalRequest(1, 9));
@@ -701,10 +726,5 @@ $atualizarResponsavelTecnicoDTO = new AtualizarResponsavelTecnicoDTO(
 // $response = $authConnector->send(new MostrarResponsavelTecnicoRequest(1, 6));
 // $response = $authConnector->send(new DeletarResponsavelTecnicoRequest(1, 6));
 
-$mostrarFuncoesDTO = new MostrarFuncoesDoSetorDTO(2, [2, 3]);
-$mostrarFuncoesRequest = new MostrarFuncoesDoSetorRequest(2, $mostrarFuncoesDTO);
-
-$response = $authConnector->send($mostrarFuncoesRequest);
-
-echo ($response);
-dd(json_decode($response));
+// echo ($response);
+// dd(json_decode($response));
