@@ -78,19 +78,20 @@ use RweDevs\EsocialApiConnector\Esocial\Requests\TabelaIndOptRegEletronRequest;
 use RweDevs\EsocialApiConnector\EsocialApiConnectorServiceProvider;
 use RweDevs\EsocialApiConnector\Esocial\EsocialConnector;
 use RweDevs\EsocialApiConnector\Esocial\Requests\AtualizarEmpregadorLogoRequest;
+use RweDevs\EsocialApiConnector\Esocial\Requests\DeletarEmpregadorLogoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\MostrarEmpregadorLogoRequest;
 use RweDevs\EsocialApiConnector\Esocial\Requests\RegistroRequest;
 use Saloon\Data\MultipartValue;
 
 $apiUrl = 'http://localhost:8001/api/';
-$token = '7|602Rfud0DwoM4Cesd2Ue9Kn4XC5mCglTHKhGfmEyba78071b';
+// $token = '3|YkYjAiTLjEWt4HevxGzI50mAmEwqq2KrTevCv0JN705db816';
 
 // $serviceProvider = EsocialApiConnectorServiceProvider::class;
 
 // CONNECTORS
 
 // $connector = new EsocialConnector($apiUrl);
-$authConnector = new EsocialConnector($apiUrl, $token);
+// $authConnector = new EsocialConnector($apiUrl, $token);
 
 // PASSPORT
 // $retrieveToken = new RetrieveTokenRequest('credentials', '1', 'sZdw7LmsmgiF1upvZJfV3Q8HL2NQqwksKMkZuktH', 'scope');
@@ -319,6 +320,8 @@ $criarEmpregadorDTO = new CriarEmpregadorDTO(...$empregadorDataArray);
 // );
 // $atualizarEmpregadorLogoRequest = new AtualizarEmpregadorLogoRequest(7, $atualizarEmpregadorLogoDTO);
 // $response = $authConnector->send($atualizarEmpregadorLogoRequest);
+// $response = $authConnector->send(new DeletarEmpregadorLogoRequest(1));
+
 // VER LOCAIS
 
 // $response = $authConnector->send(new ListarLocalRequest(1));
@@ -726,5 +729,5 @@ $atualizarResponsavelTecnicoDTO = new AtualizarResponsavelTecnicoDTO(
 // $response = $authConnector->send(new MostrarResponsavelTecnicoRequest(1, 6));
 // $response = $authConnector->send(new DeletarResponsavelTecnicoRequest(1, 6));
 
-// echo ($response);
+echo ($response);
 // dd(json_decode($response));
